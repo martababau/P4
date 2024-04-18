@@ -1,0 +1,9 @@
+.coluna{
+    display: inline-block;
+}
+
+img{
+    width:250px;
+    height:auto;
+    display: block;
+}
