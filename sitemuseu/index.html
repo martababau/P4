@@ -176,31 +176,37 @@
       let currentIndex = 0;
       const slides = document.querySelectorAll(".slide");
       const totalSlides = slides.length;
+      const slideContainer = document.querySelector(".slide-container");
+      const bgContainer = document.getElementById("bg_container");
 
       function showSlides() {
-        const slideContainer = document.querySelector(".slide-container");
-        const bgContainer = document.getElementById("bg_container");
-        bgContainer.style.transform = `translateX(-${
+        slideContainer.style.transform = `translateX(-${
           currentIndex <= 3 ? 0 : 100
         }%)`;
-        slideContainer.style.transform = `translateX(-${
+        bgContainer.style.transform = `translateX(-${
           currentIndex <= 3 ? 0 : 100
         }%)`;
       }
 
       function nextSlide() {
-        if (currentIndex < totalSlides - 4) {
-          currentIndex = totalSlides - 4;
-        } else {
-          currentIndex = 0;
-        }
+        currentIndex = currentIndex >= totalSlides - 4 ? 0 : totalSlides - 4;
         showSlides();
       }
 
       function prevSlide() {
-        currentIndex = 0;
+        currentIndex = currentIndex <= 0 ? totalSlides - 4 : 0;
         showSlides();
       }
+
+      function handleWheel(event) {
+        if (event.deltaY > 0) {
+          nextSlide();
+        } else if (event.deltaY < 0) {
+          prevSlide();
+        }
+      }
+
+      document.addEventListener("wheel", handleWheel);
 
       showSlides();
     </script>
