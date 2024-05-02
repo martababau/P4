@@ -3,67 +3,206 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>MSA</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>Carousel</title>
+    <style>
+      body {
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+      }
+      #bg_container {
+        display: flex;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        transition: transform 0.5s ease;
+      }
+
+      .bg {
+        flex: 1 0 100%;
+        height: 100%;
+      }
+
+      .bg:first-child {
+        background-color: #ff99cc;
+      }
+      .bg:last-child {
+        background-color: #99ff99;
+      }
+
+      .carousel {
+        width: 80%;
+        margin: 0 auto;
+        overflow: hidden;
+        position: absolute;
+        bottom: 33%;
+        right: 50%;
+        transform: translateX(50%);
+      }
+
+      .slide-container {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .slide {
+        flex: 1 0 25%; /* Display 4 slides horizontally */
+        height: 200px;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 200px;
+        position: relative;
+      }
+
+      .slide:nth-child(1) {
+        background-color: #ff6666;
+      }
+      .slide:nth-child(2) {
+        background-color: #66ccff;
+      }
+      .slide:nth-child(3) {
+        background-color: #99ff99;
+      }
+      .slide:nth-child(4) {
+        background-color: #ffcc66;
+      }
+      .slide:nth-child(5) {
+        background-color: #ff99cc;
+      }
+      .slide:nth-child(6) {
+        background-color: #ccccff;
+      }
+      .slide:nth-child(7) {
+        background-color: #66ff99;
+      }
+      .slide:nth-child(8) {
+        background-color: #cc99ff;
+      }
+
+      .prev,
+      .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+      }
+
+      .prev {
+        left: 0;
+      }
+
+      .next {
+        right: 0;
+      }
+
+      .pilar {
+        position: absolute;
+        width: 12%;
+        background-color: red;
+        bottom: 0;
+        height: 30%;
+      }
+      .pilar:nth-child(3) {
+        left: 14%;
+      }
+      .pilar:nth-of-type(4) {
+        left: 34%;
+      }
+      .pilar:nth-of-type(5) {
+        left: 54%;
+      }
+      .pilar:nth-of-type(6) {
+        left: 74%;
+      }
+
+      .product {
+        position: absolute;
+        right: 50%;
+        bottom: 50%;
+        transform: translate(50%, 50%);
+        height: 100%;
+        width: auto;
+      }
+      
+    </style>
   </head>
-
   <body>
-    <header>
-      <h1>Museum Of Strange Artifacts</h1>
-    </header>
-    <main>
-      <div id="carrossel">
-        <div class="coluna">
-          <img src="imagens/spot.png" alt="luz" />
-          <img src="imagens/fug.png" alt="merda" />
-          <img src="imagens/pila.png" alt="pilar" />
-        </div>
+    <div id="bg_container">
+      <div class="bg"></div>
+      <div class="bg"></div>
+    </div>
 
-        <div class="coluna">
-          <img src="imagens/spot.png" alt="luz" />
-          <img src="imagens/fug.png" alt="merda" />
-          <img src="imagens/pila.png" alt="pilar" />
+    <div class="carousel">
+      <div class="slide-container">
+        <div class="slide">
+          Slide 1<img class="product" src="/imagens/face.png" alt="produto" />
         </div>
-
-        <div class="coluna">
-          <img src="imagens/spot.png" alt="luz" />
-          <img src="imagens/fug.png" alt="merda" />
-          <img src="imagens/pila.png" alt="pilar" />
+        <div class="slide">
+          Slide 2<img class="product" src="/imagens/face.png" alt="produto" />
         </div>
-
-        <div class="coluna">
-          <img src="imagens/spot.png" alt="luz" />
-          <img src="imagens/fug.png" alt="merda" />
-          <img src="imagens/pila.png" alt="pilar" />
+        <div class="slide">
+          Slide 3<img class="product" src="/imagens/face.png" alt="produto" />
         </div>
-
-        <div class="coluna">
-          <img src="imagens/spot.png" alt="luz" />
-          <img src="imagens/fug.png" alt="merda" />
-          <img src="imagens/pila.png" alt="pilar" />
+        <div class="slide">
+          Slide 4<img class="product" src="/imagens/face.png" alt="produto" />
         </div>
-
-        <div class="coluna">
-          <img src="imagens/spot.png" alt="luz" />
-          <img src="imagens/fug.png" alt="merda" />
-          <img src="imagens/pila.png" alt="pilar" />
+        <div class="slide">
+          Slide 5<img class="product" src="/imagens/face.png" alt="produto" />
         </div>
-
-        <div class="coluna">
-          <img src="imagens/spot.png" alt="luz" />
-          <img src="imagens/fug.png" alt="merda" />
-          <img src="imagens/pila.png" alt="pilar" />
+        <div class="slide">
+          Slide 6<img class="product" src="/imagens/face.png" alt="produto" />
         </div>
-
-        <div class="coluna">
-          <img src="imagens/spot.png" alt="luz" />
-          <img src="imagens/fug.png" alt="merda" />
-          <img src="imagens/pila.png" alt="pilar" />
+        <div class="slide">
+          Slide 7<img class="product" src="/imagens/face.png" alt="produto" />
+        </div>
+        <div class="slide">
+          Slide 8<img class="product" src="/imagens/face.png" alt="produto" />
         </div>
       </div>
-    </main>
-    <script src="index.js"></script>
+    </div>
+    <div class="pilar"></div>
+    <div class="pilar"></div>
+    <div class="pilar"></div>
+    <div class="pilar"></div>
+
+    <div class="prev" onclick="prevSlide()">Previous</div>
+    <div class="next" onclick="nextSlide()">Next</div>
+
+    <script>
+      let currentIndex = 0;
+      const slides = document.querySelectorAll(".slide");
+      const totalSlides = slides.length;
+
+      function showSlides() {
+        const slideContainer = document.querySelector(".slide-container");
+        const bgContainer = document.getElementById("bg_container");
+        bgContainer.style.transform = `translateX(-${
+          currentIndex <= 3 ? 0 : 100
+        }%)`;
+        slideContainer.style.transform = `translateX(-${
+          currentIndex <= 3 ? 0 : 100
+        }%)`;
+      }
+
+      function nextSlide() {
+        if (currentIndex < totalSlides - 4) {
+          currentIndex = totalSlides - 4;
+        } else {
+          currentIndex = 0;
+        }
+        showSlides();
+      }
+
+      function prevSlide() {
+        currentIndex = 0;
+        showSlides();
+      }
+
+      showSlides();
+    </script>
   </body>
 </html>
