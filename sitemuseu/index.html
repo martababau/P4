@@ -1,214 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carousel</title>
     <style>
-      body {
-        overflow: hidden;
-        height: 100vh;
-        width: 100vw;
-        margin: 0;
-      }
-      #bg_container {
-        display: flex;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        transition: transform 0.5s ease;
-      }
+        body {
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            position: relative;
+        }
+        #bg_container {
+            display: flex;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            transition: transform 0.5s ease;
+            z-index: -1; /* Ensure background is behind everything */
+        }
 
-      .bg {
-        flex: 1 0 100%;
-        height: 100%;
-      }
+        .bg {
+            flex: 1 0 100%;
+            height: 100%;
+        }
 
-      .bg:first-child {
-        background-color: #3b3b3b;
-      }
-      .bg:last-child {
-        background-color: #616161;
-      }
+        .bg:first-child {
+            background-color: #3b3b3b;
+        }
+        .bg:last-child {
+            background-color: #616161;
+        }
 
-      .carousel {
-        width: 80%;
-        margin: 0 auto;
-        overflow: hidden;
-        position: absolute;
-        bottom: 33%;
-        right: 50%;
-        transform: translateX(50%);
-      }
+        .carousel {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: absolute;
+            bottom: 33%;
+            right: 50%;
+            transform: translateX(50%);
+        }
 
-      .slide-container {
-        display: flex;
-        transition: transform 0.5s ease;
-      }
+        .slide-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
 
-      .slide {
-        flex: 1 0 25%; /* Display 4 slides horizontally */
-        height: 200px;
-        box-sizing: border-box;
-        text-align: center;
-        line-height: 200px;
-        position: relative;
-      }
+        .slide {
+            flex: 1 0 25%; /* Display 4 slides horizontally */
+            height: 200px;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 200px;
+            position: relative;
+        }
 
-      .slide:nth-child(1) {
-        background-color: #ff6666;
-      }
-      .slide:nth-child(2) {
-        background-color: #66ccff;
-      }
-      .slide:nth-child(3) {
-        background-color: #99ff99;
-      }
-      .slide:nth-child(4) {
-        background-color: #ffcc66;
-      }
-      .slide:nth-child(5) {
-        background-color: #ff99cc;
-      }
-      .slide:nth-child(6) {
-        background-color: #ccccff;
-      }
-      .slide:nth-child(7) {
-        background-color: #66ff99;
-      }
-      .slide:nth-child(8) {
-        background-color: #cc99ff;
-      }
+        .slide:nth-child(1) {
+            background-color: #ff6666;
+        }
+        .slide:nth-child(2) {
+            background-color: #66ccff;
+        }
+        .slide:nth-child(3) {
+            background-color: #99ff99;
+        }
+        .slide:nth-child(4) {
+            background-color: #ffcc66;
+        }
+        .slide:nth-child(5) {
+            background-color: #ff99cc;
+        }
+        .slide:nth-child(6) {
+            background-color: #ccccff;
+        }
+        .slide:nth-child(7) {
+            background-color: #66ff99;
+        }
+        .slide:nth-child(8) {
+            background-color: #cc99ff;
+        }
 
-      .prev,
-      .next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        padding: 10px;
-      }
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+        }
 
-      .prev {
-        left: 0;
-      }
+        .prev {
+            left: 0;
+        }
 
-      .next {
-        right: 0;
-      }
+        .next {
+            right: 0;
+        }
 
-      .pilar {
-        position: absolute;
-        width: 12%;
-        background-color: red;
-        bottom: 0;
-        height: 30%;
-      }
-      .pilar:nth-child(3) {
-        left: 14%;
-      }
-      .pilar:nth-of-type(4) {
-        left: 34%;
-      }
-      .pilar:nth-of-type(5) {
-        left: 54%;
-      }
-      .pilar:nth-of-type(6) {
-        left: 74%;
-      }
+        .pilar {
+            position: absolute;
+            width: 12%;
+            background-color: red;
+            bottom: 0;
+            height: 30%;
+        }
+        .pilar:nth-child(3) {
+            left: 14%;
+        }
+        .pilar:nth-of-type(4) {
+            left: 34%;
+        }
+        .pilar:nth-of-type(5) {
+            left: 54%;
+        }
+        .pilar:nth-of-type(6) {
+            left: 74%;
+        }
 
-      .product {
-        position: absolute;
-        right: 50%;
-        bottom: 50%;
-        transform: translate(50%, 50%);
-        height: 100%;
-        width: auto;
-      }
-      
+        .product {
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Centering */
+            height: auto;
+            max-height: 200px; /* Maximum height */
+            width: auto;
+            max-width: 100%; /* Maximum width */
+        }
+
+        .holofote-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .holofote {
+            height: 100%;
+            width: 20%; /* Each image covers 20% of the window */
+        }
+
     </style>
-  </head>
-  <body>
-    <div id="bg_container">
-      <div class="bg"></div>
-      <div class="bg"></div>
+</head>
+<body>
+<div id="bg_container">
+    <div class="bg"></div>
+    <div class="bg"></div>
+</div>
+
+<div class="carousel">
+    <div class="slide-container">
+        <div class="slide">
+            <img class="product" src="imagens/face.png" alt="produto" />
+        </div>
+        <div class="slide">
+            <img class="product" src="imagens/face.png" alt="produto" />
+        </div>
+        <div class="slide">
+            <img class="product" src="imagens/face.png" alt="produto" />
+        </div>
+        <div class="slide">
+            <img class="product" src="imagens/face.png" alt="produto" />
+        </div>
+        <div class="slide">
+            <img class="product" src="imagens/face.png" alt="produto" />
+        </div>
+        <div class="slide">
+            <img class="product" src="imagens/face.png" alt="produto" />
+        </div>
+        <div class="slide">
+            <img class="product" src="imagens/face.png" alt="produto" />
+        </div>
+        <div class="slide">
+            <img class="product" src="imagens/face.png" alt="produto" />
+        </div>
     </div>
+</div>
+<div class="pilar"></div>
+<div class="pilar"></div>
+<div class="pilar"></div>
+<div class="pilar"></div>
 
-    <div class="carousel">
-      <div class="slide-container">
-        <div class="slide">
-          Slide 1<img class="product" src="imagens/face.png" alt="produto" />
-        </div>
-        <div class="slide">
-          Slide 2<img class="product" src="imagens/face.png" alt="produto" />
-        </div>
-        <div class="slide">
-          Slide 3<img class="product" src="imagens/face.png" alt="produto" />
-        </div>
-        <div class="slide">
-          Slide 4<img class="product" src="imagens/face.png" alt="produto" />
-        </div>
-        <div class="slide">
-          Slide 5<img class="product" src="imagens/face.png" alt="produto" />
-        </div>
-        <div class="slide">
-          Slide 6<img class="product" src="imagens/face.png" alt="produto" />
-        </div>
-        <div class="slide">
-          Slide 7<img class="product" src="imagens/face.png" alt="produto" />
-        </div>
-        <div class="slide">
-          Slide 8<img class="product" src="imagens/face.png" alt="produto" />
-        </div>
-      </div>
-    </div>
-    <div class="pilar"></div>
-    <div class="pilar"></div>
-    <div class="pilar"></div>
-    <div class="pilar"></div>
+<div class="prev" onclick="prevSlide()">Previous</div>
+<div class="next" onclick="nextSlide()">Next</div>
 
-    <div class="prev" onclick="prevSlide()">Previous</div>
-    <div class="next" onclick="nextSlide()">Next</div>
+<!-- Four holofote images -->
+<div class="holofote-container">
+    <img class="holofote" src="imagens/holofote.png" alt="holofote" />
+    <img class="holofote" src="imagens/holofote.png" alt="holofote" />
+    <img class="holofote" src="imagens/holofote.png" alt="holofote" />
+    <img class="holofote" src="imagens/holofote.png" alt="holofote" />
+</div>
 
-    <script>
-      let currentIndex = 0;
-      const slides = document.querySelectorAll(".slide");
-      const totalSlides = slides.length;
-      const slideContainer = document.querySelector(".slide-container");
-      const bgContainer = document.getElementById("bg_container");
+<script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+    const slideContainer = document.querySelector(".slide-container");
+    const bgContainer = document.getElementById("bg_container");
 
-      function showSlides() {
+    function showSlides() {
         slideContainer.style.transform = `translateX(-${
-          currentIndex <= 3 ? 0 : 100
+            currentIndex <= 3 ? 0 : 100
         }%)`;
         bgContainer.style.transform = `translateX(-${
-          currentIndex <= 3 ? 0 : 100
+            currentIndex <= 3 ? 0 : 100
         }%)`;
-      }
+    }
 
-      function nextSlide() {
+    function nextSlide() {
         currentIndex = currentIndex >= totalSlides - 4 ? 0 : totalSlides - 4;
         showSlides();
-      }
+    }
 
-      function prevSlide() {
+    function prevSlide() {
         currentIndex = currentIndex <= 0 ? totalSlides - 4 : 0;
         showSlides();
-      }
+    }
 
-      function handleWheel(event) {
+    function handleWheel(event) {
         if (event.deltaY > 0) {
-          nextSlide();
+            nextSlide();
         } else if (event.deltaY < 0) {
-          prevSlide();
+            prevSlide();
         }
-      }
+    }
 
-      document.addEventListener("wheel", handleWheel);
+    document.addEventListener("wheel", handleWheel);
 
-      showSlides();
-    </script>
-  </body>
+    showSlides();
+</script>
+</body>
 </html>
