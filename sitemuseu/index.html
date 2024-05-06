@@ -145,6 +145,7 @@
         .holofote {
             height: 100%;
             width: 20%; /* Each image covers 20% of the window */
+            transition: opacity 0.3s ease;
         }
 
     </style>
@@ -193,10 +194,10 @@
 
 <!-- Four holofote images -->
 <div class="holofote-container">
-    <img class="holofote" src="imagens/holofote.png" alt="holofote" />
-    <img class="holofote" src="imagens/holofote.png" alt="holofote" />
-    <img class="holofote" src="imagens/holofote.png" alt="holofote" />
-    <img class="holofote" src="imagens/holofote.png" alt="holofote" />
+    <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote1" />
+    <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote2" />
+    <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote3" />
+    <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote4" />
 </div>
 
 <script>
@@ -205,6 +206,7 @@
     const totalSlides = slides.length;
     const slideContainer = document.querySelector(".slide-container");
     const bgContainer = document.getElementById("bg_container");
+    const holofoteImages = document.querySelectorAll(".holofote");
 
     function showSlides() {
         slideContainer.style.transform = `translateX(-${
@@ -234,6 +236,33 @@
     }
 
     document.addEventListener("wheel", handleWheel);
+
+    // Function to calculate and set opacity of holofote images based on mouse position
+    function setHolofoteOpacity(event) {
+        const mouseX = event.clientX; // Get the horizontal position of the mouse
+
+        // Calculate distance between mouse and each holofote horizontally
+        const distances = [];
+        holofoteImages.forEach((holofote, index) => {
+            const holofoteRect = holofote.getBoundingClientRect();
+            const holofoteCenterX = holofoteRect.left + holofoteRect.width / 2;
+            const distance = Math.abs(mouseX - holofoteCenterX);
+            distances.push({ index, distance });
+        });
+
+        // Find the closest holofote and set its opacity accordingly
+        distances.sort((a, b) => a.distance - b.distance);
+        holofoteImages.forEach((holofote, index) => {
+            if (index === distances[0].index) {
+                holofote.style.opacity = 1;
+            } else {
+                holofote.style.opacity = 0.25;
+            }
+        });
+    }
+
+    // Add mousemove event listener to adjust holofote opacity
+    document.addEventListener("mousemove", setHolofoteOpacity);
 
     showSlides();
 </script>
