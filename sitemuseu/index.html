@@ -31,12 +31,11 @@
         }
         .bg:last-child {
             background-color: #616161;
-        }
+        }    
 
         .carousel {
             width: 80%;
             margin: 0 auto;
-            overflow: hidden;
             position: absolute;
             bottom: 33%;
             right: 50%;
@@ -82,44 +81,16 @@
             background-color: #cc99ff;
         }
 
-        .prev,
-        .next {
+       
+        .pilar_dentro {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
+            width: 65%;
+            background-color: blue;
+            top: 110%;
+            left: 17.5%;
+            height: 200%;
         }
-
-        .prev {
-            left: 0;
-        }
-
-        .next {
-            right: 0;
-        }
-
-        .pilar {
-            position: absolute;
-            width: 12%;
-            background-color: red;
-            bottom: 0;
-            height: 30%;
-        }
-        .pilar:nth-child(3) {
-            left: 14%;
-        }
-        .pilar:nth-of-type(4) {
-            left: 34%;
-        }
-        .pilar:nth-of-type(5) {
-            left: 54%;
-        }
-        .pilar:nth-of-type(6) {
-            left: 74%;
-        }
+       
 
         .product {
             position: absolute;
@@ -148,6 +119,28 @@
             transition: opacity 0.3s ease;
         }
 
+
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+
     </style>
 </head>
 <body>
@@ -158,39 +151,45 @@
 
 <div class="carousel">
     <div class="slide-container">
+       
         <div class="slide">
             <img class="product" src="imagens/face.png" alt="produto" />
+            <div class="pilar_dentro"></div>
         </div>
         <div class="slide">
             <img class="product" src="imagens/face.png" alt="produto" />
+            <div class="pilar_dentro"></div>
         </div>
         <div class="slide">
             <img class="product" src="imagens/face.png" alt="produto" />
+            <div class="pilar_dentro"></div>
         </div>
         <div class="slide">
             <img class="product" src="imagens/face.png" alt="produto" />
+            <div class="pilar_dentro"></div>
         </div>
         <div class="slide">
             <img class="product" src="imagens/face.png" alt="produto" />
+            <div class="pilar_dentro"></div>
         </div>
         <div class="slide">
             <img class="product" src="imagens/face.png" alt="produto" />
+            <div class="pilar_dentro"></div>
         </div>
         <div class="slide">
             <img class="product" src="imagens/face.png" alt="produto" />
+            <div class="pilar_dentro"></div>
         </div>
         <div class="slide">
             <img class="product" src="imagens/face.png" alt="produto" />
+            <div class="pilar_dentro"></div>
         </div>
+        
     </div>
 </div>
-<div class="pilar"></div>
-<div class="pilar"></div>
-<div class="pilar"></div>
-<div class="pilar"></div>
 
-<div class="prev" onclick="prevSlide()">Previous</div>
-<div class="next" onclick="nextSlide()">Next</div>
+
+
 
 <!-- Four holofote images -->
 <div class="holofote-container">
@@ -199,6 +198,11 @@
     <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote3" />
     <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote4" />
 </div>
+
+
+<div class="prev" onclick="prevSlide()">Previous</div>
+<div class="next" onclick="nextSlide()">Next</div>
+
 
 <script>
     let currentIndex = 0;
@@ -210,20 +214,17 @@
 
     function showSlides() {
         slideContainer.style.transform = `translateX(-${
-            currentIndex <= 3 ? 0 : 100
-        }%)`;
-        bgContainer.style.transform = `translateX(-${
-            currentIndex <= 3 ? 0 : 100
-        }%)`;
+            currentIndex * 25
+        }%)`
     }
 
     function nextSlide() {
-        currentIndex = currentIndex >= totalSlides - 4 ? 0 : totalSlides - 4;
+        currentIndex = currentIndex >= totalSlides - 4 ? 0 : currentIndex + 1;
         showSlides();
     }
 
     function prevSlide() {
-        currentIndex = currentIndex <= 0 ? totalSlides - 4 : 0;
+        currentIndex = currentIndex <= 0 ? totalSlides - 4 : currentIndex - 1 ;
         showSlides();
     }
 
