@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fade Animation</title>
+  <style>
+    /* Styles for the fade animation */
+    body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-color:#3b3b3b; /* Change background color to red */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+
+    #black-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 9999;
+      opacity: 1; /* Initially fully opaque */
+      animation: fadeOut 1s ease-in-out forwards; /* Fade out over 1 second */
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    /* Your website content */
+    #content {
+      position: relative;
+      z-index: 10000; /* Ensure content is above black screen */
+      color: rgb(167, 37, 37);
+      text-align: center;
+      padding-top: 50px; /* Adjust to center content vertically */
+    }
+  </style>
+</head>
+<body>
+  <!-- Black screen overlay -->
+  <div id="black-screen"></div>
+
+  <!-- Your website content goes here -->
+  <div id="content">
+   
+  </div>
+
+</body>
+</html>
