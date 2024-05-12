@@ -11,6 +11,9 @@
             width: 100vw;
             margin: 0;
             position: relative;
+            background-color: black;
+            opacity: 1;
+            transition: opacity 0.5s ease;
         }
         #bg_container {
             display: flex;
@@ -18,21 +21,18 @@
             height: 100%;
             width: 100%;
             transition: transform 0.5s ease;
-            z-index: -1; /* Ensure background is behind everything */
+            z-index: -1;
         }
-
         .bg {
             flex: 1 0 100%;
             height: 100%;
         }
-
         .bg:first-child {
             background-color: #3b3b3b;
         }
         .bg:last-child {
             background-color: #616161;
         }    
-
         .carousel {
             width: 80%;
             margin: 0 auto;
@@ -41,21 +41,18 @@
             right: 50%;
             transform: translateX(50%);
         }
-
         .slide-container {
             display: flex;
             transition: transform 0.5s ease;
         }
-
         .slide {
-            flex: 1 0 25%; /* Display 4 slides horizontally */
+            flex: 1 0 25%;
             height: 200px;
             box-sizing: border-box;
             text-align: center;
             line-height: 200px;
             position: relative;
         }
-
         .slide:nth-child(1) {
             background-color: #ff6666;
         }
@@ -80,8 +77,6 @@
         .slide:nth-child(8) {
             background-color: #cc99ff;
         }
-
-       
         .pilar_dentro {
             position: absolute;
             width: 65%;
@@ -90,21 +85,18 @@
             left: 17.5%;
             height: 200%;
         }
-       
-
         .product {
             position: absolute;
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Centering */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             height: auto;
-            max-height: 200px; /* Maximum height */
+            max-height: 200px;
             width: auto;
-            max-width: 100%; /* Maximum width */
+            max-width: 100%;
+            cursor: pointer;
         }
-
         .holofote-container {
-          
             top: 0;
             left: 0;
             width: 100%;
@@ -112,15 +104,11 @@
             display: flex;
             justify-content: space-between;
         }
-
         .holofote {
             height: 100%;
-            width: 20%; /* Each image covers 20% of the window */
+            width: 20%;
             transition: opacity 0.3s ease;
         }
-
-
-
         .prev,
         .next {
             position: absolute;
@@ -131,16 +119,12 @@
             color: white;
             padding: 10px;
         }
-
         .prev {
             left: 0;
         }
-
         .next {
             right: 0;
         }
-
-
     </style>
 </head>
 <body>
@@ -151,14 +135,13 @@
 
 <div class="carousel"> 
     <div class="slide-container">
-       
         <div class="slide">
             <a href="objeto1.html">
                 <img class="product" src="imagens/face.png" alt="produto" />
             </a>
             <div class="pilar_dentro"></div>
         </div>
-        
+        <!-- Add more slides -->
         <div class="slide">
             <a href="objeto2.html">
                 <img class="product" src="imagens/face.png" alt="produto" />
@@ -204,10 +187,6 @@
     </div>
 </div>
 
-
-
-
-<!-- Four holofote images -->
 <div class="holofote-container">
     <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote1" />
     <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote2" />
@@ -215,10 +194,8 @@
     <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote4" />
 </div>
 
-
 <div class="prev" onclick="prevSlide()">Previous</div>
 <div class="next" onclick="nextSlide()">Next</div>
-
 
 <script>
     let currentIndex = 0;
@@ -229,9 +206,7 @@
     const holofoteImages = document.querySelectorAll(".holofote");
 
     function showSlides() {
-        slideContainer.style.transform = `translateX(-${
-            currentIndex * 25
-        }%)`
+        slideContainer.style.transform = `translateX(-${currentIndex * 25}%)`;
     }
 
     function nextSlide() {
@@ -254,11 +229,8 @@
 
     document.addEventListener("wheel", handleWheel);
 
-    // Function to calculate and set opacity of holofote images based on mouse position
     function setHolofoteOpacity(event) {
-        const mouseX = event.clientX; // Get the horizontal position of the mouse
-
-        // Calculate distance between mouse and each holofote horizontally
+        const mouseX = event.clientX;
         const distances = [];
         holofoteImages.forEach((holofote, index) => {
             const holofoteRect = holofote.getBoundingClientRect();
@@ -266,8 +238,6 @@
             const distance = Math.abs(mouseX - holofoteCenterX);
             distances.push({ index, distance });
         });
-
-        // Find the closest holofote and set its opacity accordingly
         distances.sort((a, b) => a.distance - b.distance);
         holofoteImages.forEach((holofote, index) => {
             if (index === distances[0].index) {
@@ -278,10 +248,25 @@
         });
     }
 
-    // Add mousemove event listener to adjust holofote opacity
     document.addEventListener("mousemove", setHolofoteOpacity);
 
-    showSlides();
+    function fadeOutBodyAndNavigate(url) {
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+            window.location.href = url;
+        }, 500); // Adjust timing as needed
+    }
+    
+    const productLinks = document.querySelectorAll('.product');
+    productLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const url = link.parentElement.href;
+            fadeOutBodyAndNavigate(url);
+        });
+    });
+
+    showSlides(); // Ensure initial slide display
 </script>
 </body>
 </html>
