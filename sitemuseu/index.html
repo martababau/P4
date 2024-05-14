@@ -8,16 +8,20 @@
         <h1 id="titulo">Museum of Strange Artifacts</h1>
     </div>
     <style>
-        @font-face { font-family: Justus; src: url('../Fonts/Justus-Roman.woff'); }
+        :root {
+            --branco: #F2F0EB;
+            --preto: #161616;
+        }
+        @font-face { font-family: Curia; src: url('../Fonts/Curia-Regular.woff'); }
         @font-face { font-family: Inter; src: url('../Fonts/Inter-Regular.woff'); }
 
         #text-container {
-            font-family: Justus;
+            font-family: Curia;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 3.4vw;
+            color: var(--branco);
+            font-size: 2vw;
         }
 
         body {
@@ -26,7 +30,7 @@
             width: 100vw;
             margin: 0;
             position: relative;
-            background-color: black;
+            background-color: var(--preto);
             opacity: 1;
             transition: opacity 0.5s ease;
         }
@@ -43,10 +47,10 @@
             height: 100%;
         }
         .bg:first-child {
-            background-color: #3b3b3b;
+            background-color: var(--preto);
         }
         .bg:last-child {
-            background-color: #616161;
+            background-color: var(--preto);
         }    
         .carousel {
             width: 80%;
