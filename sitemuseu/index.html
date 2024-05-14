@@ -47,13 +47,13 @@
         }
         .slide {
             flex: 1 0 25%;
-            height: 200px;
+            height: 300px;
             box-sizing: border-box;
             text-align: center;
             line-height: 200px;
             position: relative;
         }
-        .slide:nth-child(1) {
+     /*   .slide:nth-child(1) {
             background-color: #ff6666;
         }
         .slide:nth-child(2) {
@@ -77,6 +77,10 @@
         .slide:nth-child(8) {
             background-color: #cc99ff;
         }
+
+        */
+
+        
         .pilar_dentro {
             position: absolute;
             width: 65%;
@@ -91,22 +95,24 @@
             left: 50%;
             transform: translate(-50%, -50%);
             height: auto;
-            max-height: 200px;
+            max-height: 100%;
             width: auto;
             max-width: 100%;
             cursor: pointer;
         }
         .holofote-container {
+            position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 10%;
+            width: 80%;
             height: 100%;
             display: flex;
             justify-content: space-between;
+            z-index: -1;
         }
         .holofote {
             height: 100%;
-            width: 20%;
+            width: 25%;
             transition: opacity 0.3s ease;
         }
         .prev,
@@ -137,7 +143,7 @@
     <div class="slide-container">
         <div class="slide">
             <a href="objeto1.html">
-                <img class="product" src="imagens/face.png" alt="produto" />
+                <img class="product" src="imagens/gc1.png" alt="produto" />
             </a>
             <div class="pilar_dentro"></div>
         </div>
@@ -150,7 +156,7 @@
         </div>
         <div class="slide">
             <a href="objeto3.html">
-                <img class="product" src="imagens/face.png" alt="produto" />
+                <img class="product" src="imagens/per1.png" alt="produto" />
             </a>
             <div class="pilar_dentro"></div>
         </div>
