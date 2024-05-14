@@ -53,42 +53,16 @@
             line-height: 200px;
             position: relative;
         }
-     /*   .slide:nth-child(1) {
-            background-color: #ff6666;
-        }
-        .slide:nth-child(2) {
-            background-color: #66ccff;
-        }
-        .slide:nth-child(3) {
-            background-color: #99ff99;
-        }
-        .slide:nth-child(4) {
-            background-color: #ffcc66;
-        }
-        .slide:nth-child(5) {
-            background-color: #ff99cc;
-        }
-        .slide:nth-child(6) {
-            background-color: #ccccff;
-        }
-        .slide:nth-child(7) {
-            background-color: #66ff99;
-        }
-        .slide:nth-child(8) {
-            background-color: #cc99ff;
-        }
-
-        */
-
-        
         .pilar_dentro {
-            position: absolute;
-            width: 65%;
-            background-color: blue;
-            top: 110%;
-            left: 17.5%;
-            height: 200%;
-        }
+    position: absolute;
+    width: 100%; 
+    background: url('imagens/coluna1.png') center/contain no-repeat;
+    top: 70%;
+   /* Adjust the left positioning if needed */
+    height: 200%;
+}
+
+
         .product {
             position: absolute;
             top: 50%;
@@ -116,34 +90,25 @@
             transition: opacity 0.3s ease;
         }
         .prev,
-.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    opacity: 0.5;
-    padding: 10px;
-    transition: opacity 0.3s ease; 
-}
-.prev:hover,
-.next:hover {
-    opacity: 1; 
-}
-
-.prev {
-    left: 0;
-}
-
-.next {
-    right: 0;
-}
-
-
-
-
-
-
-
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            opacity: 0.5;
+            padding: 10px;
+            transition: opacity 0.3s ease; 
+        }
+        .prev:hover,
+        .next:hover {
+            opacity: 1; 
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
     </style>
 </head>
 <body>
@@ -219,8 +184,6 @@
 <div class="next" onclick="nextSlide()">
     <img src="imagens/rarrow.png" alt="Next" style="width: 40px; height: 40px;">
 </div>
-
-
 
 <script>
     let currentIndex = 0;
