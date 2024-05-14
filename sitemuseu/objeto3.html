@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>obj teste</title>
   <style>
-    /* Styles for the fade animation */
+   
     body {
       margin: 0;
       padding: 0;
@@ -15,7 +15,7 @@
       position: relative;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      background-color: #3b3b3b; /* Change background color to red */
+      background-color: #3b3b3b; 
       opacity: 1;
       transition: opacity 0.5s ease;
       margin-left:100px;
@@ -24,6 +24,8 @@
     h1 {
       padding-bottom: 50px;
       text-align: center;
+      opacity: 0; 
+      animation: fadeIn 1s forwards; 
     }
 
     #black-screen {
@@ -34,8 +36,8 @@
       height: 100%;
       background-color: black;
       z-index: 9999;
-      opacity: 1; /* Initially fully opaque */
-      animation: fadeOut 1s ease-in-out forwards; /* Fade out over 1 second */
+      opacity: 1; 
+      animation: fadeOut 1s ease-in-out forwards; 
     }
 
     @keyframes fadeOut {
@@ -47,23 +49,25 @@
       }
     }
 
-    /* Your website content */
+   
     #content {
   position: relative;
-  z-index: 10000; /* Ensure content is above black screen */
+  z-index: 10000; 
   color: rgb(255, 255, 255);
-  text-align: left; /* Align text to the left */
-  padding-top: 50px; /* Adjust to center content vertically */
-  grid-column: span 2; /* Occupy 2 columns */
+  text-align: left; 
+  padding-top: 50px; 
+  grid-column: span 2; 
   margin-right: 10%;
   margin-left: 10%;
 }
 
 #text-container {
-  padding: 40px; /* Add padding to the text container */
-  margin: 40px; /* Add margin to the text container */
-  grid-column: span 2; /* Occupy 2 columns */
-  text-align: left; /* Align text to the left */
+  padding: 40px; 
+  margin: 40px; 
+  grid-column: span 2; 
+  text-align: left; 
+  opacity: 0; 
+  animation: fadeIn 1s forwards 1s; 
 }
 
     #image-container {
@@ -71,7 +75,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      position: relative; /* Ensure relative positioning */
+      position: relative; 
       height: 100%;
       max-height: 100vh;
     }
@@ -88,7 +92,16 @@
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 10001; /* Ensure it's on top of everything */
+      z-index: 10001; /* topo */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -108,8 +121,6 @@
     </div>
   </div>
 
-
-
   <script>
     var counter=0;
     var images = ["imagens/per0.png" , "imagens/per1.png", "imagens/per2.png", "imagens/per3.png", "imagens/per4.png", "imagens/per5.png"
@@ -119,7 +130,6 @@
       document.getElementById('imagem').src = "imagens/per"+counter%images.length+".png"; 
       counter+=1;
     }, 200);
-
   </script>
 </body>
 </html>
