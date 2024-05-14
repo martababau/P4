@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>obj teste</title>
   <style>
-   
     body {
       margin: 0;
       padding: 0;
@@ -15,17 +14,17 @@
       position: relative;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      background-color: #3b3b3b; 
+      background-color: #3b3b3b;
       opacity: 1;
       transition: opacity 0.5s ease;
-      margin-left:100px;
+      margin-left: 100px;
     }
 
     h1 {
       padding-bottom: 50px;
       text-align: center;
-      opacity: 0; 
-      animation: fadeIn 1s forwards; 
+      opacity: 0;
+      animation: fadeIn 1s forwards;
     }
 
     #black-screen {
@@ -36,8 +35,8 @@
       height: 100%;
       background-color: black;
       z-index: 9999;
-      opacity: 1; 
-      animation: fadeOut 1s ease-in-out forwards; 
+      opacity: 1;
+      animation: fadeOut 1s ease-in-out forwards;
     }
 
     @keyframes fadeOut {
@@ -49,50 +48,74 @@
       }
     }
 
-   
     #content {
-  position: relative;
-  z-index: 10000; 
-  color: rgb(255, 255, 255);
-  text-align: left; 
-  padding-top: 50px; 
-  grid-column: span 2; 
-  margin-right: 10%;
-  margin-left: 10%;
-}
+      position: relative;
+      z-index: 10000;
+      color: rgb(255, 255, 255);
+      text-align: left;
+      padding-top: 50px;
+      grid-column: span 2;
+      margin-right: 10%;
+      margin-left: 10%;
+    }
 
-#text-container {
-  padding: 40px; 
-  margin: 40px; 
-  grid-column: span 2; 
-  text-align: left; 
-  opacity: 0; 
-  animation: fadeIn 1s forwards 1s; 
-}
+    #text-container {
+      padding: 40px;
+      margin: 40px;
+      grid-column: span 2;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s forwards 1s;
+    }
+
+    #button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #button {
+      background-color: #555555;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 10px; /* Rounded corners */
+      opacity: 0.5; /* Original opacity */
+      transition: opacity 0.3s ease; /* Smooth transition */
+    }
+
+    #button:hover {
+      opacity: 1; /* Opacity becomes 100% on hover */
+    }
 
     #image-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      position: relative; 
+      position: relative;
       height: 100%;
       max-height: 100vh;
     }
 
     #image-container img {
       position: absolute;
-      top:0;
+      top: 0;
       height: auto;
-      width:100%;
-      transform: translate(0,-50%);
+      width: 100%;
+      transform: translate(0, -50%);
     }
 
     #holofote {
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 10001; /* topo */
+      z-index: 10001;
     }
 
     @keyframes fadeIn {
@@ -106,10 +129,8 @@
   </style>
 </head>
 <body>
-  <!-- Black screen overlay -->
   <div id="black-screen"></div>
 
-  <!-- Your website content goes here -->
   <div id="image-container">
     <img id="imagem"  src="imagens/per0.png" alt="Your Image">
     <img id="holofote" src="imagens/holofote.png" alt="Holofote">
@@ -118,6 +139,9 @@
     <div id="text-container">
       <h1 id="titulo">objeto 1 (titulo)</h1>
       <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..</p>
+      <div id="button-container">
+        <button id="button" onclick="showVideo()">Assiste ao Video</button>
+      </div>
     </div>
   </div>
 
@@ -130,6 +154,11 @@
       document.getElementById('imagem').src = "imagens/per"+counter%images.length+".png"; 
       counter+=1;
     }, 200);
+
+    function showVideo() {
+      alert("Show the perfume.mp3 video as a pop-up");
+      // Add code here to show the perfume.mp3 video as a pop-up
+    }
   </script>
 </body>
 </html>
