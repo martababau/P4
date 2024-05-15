@@ -1,3 +1,21 @@
+@font-face {
+  font-family: Curia;
+  src: url("../Fonts/Curia-Regular.woff");
+}
+@font-face {
+  font-family: Inter;
+  src: url("../Fonts/Inter-Regular.woff");
+}
+@font-face {
+  font-family: InterB;
+  src: url("../Fonts/Inter-Medium.woff");
+}
+
+:root {
+  --branco: #f2f0eb;
+  --preto: #161616;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -7,7 +25,7 @@ body {
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: #3b3b3b;
+  background-color: var(--preto);
   opacity: 1;
   transition: opacity 0.5s ease;
   margin-left: 10%;
@@ -15,12 +33,14 @@ body {
 }
 
 h1 {
+  font-family: InterB;
+  color: var(--branco);
   padding-bottom: 0px;
   text-align: left;
-  opacity: 1; /* Changed opacity to 1 */
+  opacity: 1;
   animation: fadeIn 1s forwards;
-  font-size: 80px;
-  margin-bottom: 3%; /*entre titulo e texto*/
+  font-size: 4vw;
+  margin-bottom: 3%;
 }
 
 #black-screen {
@@ -47,20 +67,23 @@ h1 {
 #content {
   position: relative;
   z-index: 10000;
-  color: rgb(255, 255, 255);
+  color: var(--branco);
   text-align: left;
-
   grid-column: span 2;
   margin-right: 20%;
   margin-left: 0%;
 }
 
 #text-container {
+  font-family: Inter;
+  color: var(--branco);
+  line-height: 1.4;
+  font-size: 1.3vw;
   margin-left: 160px;
-  margin-top: 15%; /*top, texto*/
+  margin-top: 20%;
   grid-column: span 2;
   text-align: center;
-  opacity: 1; /* Changed opacity to 1 */
+  opacity: 1;
   animation: fadeIn 1s forwards 1s;
 }
 
@@ -70,22 +93,22 @@ p {
 }
 
 #image-container {
-  position: relative; /* Changed to relative */
+  position: relative;
   height: 100%;
   max-height: 100vh;
   z-index: 1;
 }
 
 .floating-image {
-width: auto;
-height: auto;
-max-width: 150px; /* Set max width */
-max-height: 150px; /* Set max height */
-margin: 0 5px; /* Adjust spacing between images */
-animation: float 5s infinite alternate ease-in-out;
-position: absolute; /* Set position to absolute */
-left: calc(50% - 45px); /* Center the images horizontally */
-z-index: 10002; /* Set a higher z-index than other elements */
+  width: auto;
+  height: auto;
+  max-width: 150px;
+  max-height: 150px;
+  margin: 0 5px;
+  animation: float 5s infinite alternate ease-in-out;
+  position: absolute;
+  left: calc(50% - 45px);
+  z-index: 10002;
 }
 
 @keyframes float {
@@ -104,10 +127,8 @@ z-index: 10002; /* Set a higher z-index than other elements */
 #holofote {
   position: absolute;
   top: 0;
-  left: -40%;
+  left: 0;
   z-index: 10001;
-  width: 100%;
-  opacity: 100%;
 }
 
 #redirectButton {
@@ -117,11 +138,11 @@ z-index: 10002; /* Set a higher z-index than other elements */
   width: 40px;
   height: 40px;
   cursor: pointer;
-  z-index: 10002; 
-  opacity: 0.4; 
-  transition: opacity 0.3s ease; 
+  z-index: 10002;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
 }
 
 #redirectButton:hover {
-  opacity: 1; 
+  opacity: 1;
 }
