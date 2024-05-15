@@ -24,7 +24,7 @@
     h1 {
       padding-bottom: 0px;
       text-align: left;
-      opacity: 0;
+      opacity: 1; /* Changed opacity to 1 */
       animation: fadeIn 1s forwards;
       font-size: 80px;
       margin-bottom: 3%; /*entre titulo e texto*/
@@ -67,7 +67,7 @@
       margin-top: 15%; /*top, texto*/
       grid-column: span 2;
       text-align: center;
-      opacity: 0;
+      opacity: 1; /* Changed opacity to 1 */
       animation: fadeIn 1s forwards 1s;
     }
 
@@ -78,7 +78,6 @@
 
     #image-container {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
@@ -87,59 +86,26 @@
       z-index: 1;
     }
 
+    .floating-image {
+      width: 40px;
+      height: auto;
+      margin: 0 5px; /* Adjust spacing between images */
+      animation: float 5s infinite alternate ease-in-out;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-10px);
+      }
+    }
+
     #image-container img {
-  position: absolute;
-  top: 8%;
-  height: auto; 
-  
-  transform: translate(0, -50%);
-  cursor: pointer;
-    }
-    #image-container img#imagem {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 50%;
-  height: auto;
-  cursor: pointer;
-  transform-origin: bottom center; 
-  animation: rotateImage 8s linear infinite; 
-}
-
-#image-container img#imagem {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 50%;
-  height: auto;
-  cursor: pointer;
-  transform-origin: bottom center; 
-  animation: rotateImage 13s linear infinite; 
-}
-
-
-
-
-
-#image-container img#holofote {
-  position: absolute;
-  top: 0;
-  left: -20%;
-  z-index: 10001;
-  width:100%;
-}
-
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      cursor: pointer;
     }
 
- 
     #redirectButton {
       position: fixed;
       top: 10px;
@@ -155,15 +121,13 @@
     #redirectButton:hover {
       opacity: 1; 
     }
-
   </style>
 </head>
 <body>
   <div id="black-screen"></div>
 
   <div id="image-container">
-    <img id="imagem"  src="imagens/gc1.png" alt="Your Image" onclick="showVideo('videos/perfume.mp4')">
-    <img id="holofote" src="imagens/holofote.png" alt="Holofote">
+    <!-- Images will be dynamically added here -->
   </div>
   <div id="content">
     <div id="text-container">
@@ -175,7 +139,22 @@
   <img id="redirectButton" src="imagens/larrow.png" alt="Back to index" onclick="window.location.href = 'index.html'">
 
   <script>
-   
+    // Function to create and add floating images
+    function addFloatingImages() {
+      var container = document.getElementById('image-container');
+      for (var i = 1; i <= 9; i++) {
+        var img = document.createElement('img');
+        img.src = 'imagens/chave' + i + '.png';
+        img.classList.add('floating-image');
+        container.appendChild(img);
+      }
+    }
+
+    // Call the function when the page is loaded
+    window.onload = function() {
+      addFloatingImages();
+    };
+
     function showVideo(src) {
       alert("Show the " + src + " video as a pop-up");
       // Add code here to show the video as a pop-up
