@@ -1,0 +1,144 @@
+@font-face {
+  font-family: Curia;
+  src: url("../Fonts/Curia-Regular.woff");
+}
+@font-face {
+  font-family: Inter;
+  src: url("../Fonts/Inter-Regular.woff");
+}
+@font-face {
+  font-family: InterB;
+  src: url("../Fonts/Inter-Medium.woff");
+}
+
+:root {
+  --branco: #f2f0eb;
+  --preto: #161616;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: var(--preto);
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  margin-left: 10%;
+  margin-right: 200px;
+}
+
+h1 {
+  font-family: InterB;
+  color: var(--branco);
+  padding-bottom: 0px;
+  text-align: left;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  font-size: 3vw;
+  margin-bottom: 3%;
+}
+
+#black-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 9999;
+  opacity: 1;
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#content {
+  position: relative;
+  z-index: 10000;
+  color: var(--branco);
+  text-align: left;
+  grid-column: span 2;
+  margin-right: 20%;
+  margin-left: 0%;
+}
+
+#text-container {
+  font-family: Inter;
+  color: var(--branco);
+  line-height: 1.4;
+  font-size: 1vw;
+  margin-left: 160px;
+  margin-top: 25%;
+  grid-column: span 2;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s forwards 1s;
+}
+
+p {
+  text-align: left;
+  margin-right: 22%;
+}
+
+#image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  max-height: 100vh;
+  z-index: 1;
+}
+
+#image-container img {
+  position: absolute;
+  top: 15%;
+  height: auto;
+  width: 100%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+}
+
+#holofote {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10001;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#redirectButton {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10002;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+#redirectButton:hover {
+  opacity: 1;
+}
