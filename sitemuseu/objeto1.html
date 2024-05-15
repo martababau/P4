@@ -90,19 +90,34 @@
     #image-container img {
   position: absolute;
   top: 8%;
-  height: auto; /* This property maintains the aspect ratio */
+  height: auto; 
   
   transform: translate(0, -50%);
   cursor: pointer;
     }
-  #image-container img#imagem {
+    #image-container img#imagem {
   position: absolute;
   top: 50%;
   left: 0;
   width: 50%;
   height: auto;
   cursor: pointer;
+  transform-origin: bottom center; 
+  animation: rotateImage 5s linear infinite; 
 }
+
+@keyframes rotateImage {
+  0% {
+    transform: translate(0, -50%) rotate(-10deg); 
+  }
+  50% {
+    transform: translate(0, -50%) rotate(10deg); 
+  }
+  100% {
+    transform: translate(0, -50%) rotate(-10deg); 
+  }
+}
+
 
 #image-container img#holofote {
   position: absolute;
