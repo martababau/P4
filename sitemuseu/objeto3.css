@@ -33,6 +33,7 @@ body {
 
 h1 {
   font-family: InterB;
+  color: var(--branco);
   padding-bottom: 0px;
   text-align: left;
   opacity: 0;
@@ -67,7 +68,6 @@ h1 {
   z-index: 10000;
   color: var(--branco);
   text-align: left;
-
   grid-column: span 2;
   margin-right: 20%;
   margin-left: 0%;
@@ -75,6 +75,7 @@ h1 {
 
 #text-container {
   font-family: Inter;
+  color: var(--branco);
   line-height: 1.4;
   font-size: 1vw;
   margin-left: 160px;
