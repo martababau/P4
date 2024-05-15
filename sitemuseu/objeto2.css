@@ -1,3 +1,16 @@
+@font-face {
+  font-family: Curia;
+  src: url("../Fonts/Curia-Regular.woff");
+}
+@font-face {
+  font-family: Inter;
+  src: url("../Fonts/Inter-Regular.woff");
+}
+:root {
+  --branco: #f2f0eb;
+  --preto: #161616;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -7,7 +20,7 @@ body {
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: #3b3b3b;
+  background-color: var(--preto);
   opacity: 1;
   transition: opacity 0.5s ease;
   margin-left: 10%;
@@ -47,7 +60,7 @@ h1 {
 #content {
   position: relative;
   z-index: 10000;
-  color: rgb(255, 255, 255);
+  color: var(--branco);
   text-align: left;
 
   grid-column: span 2;
@@ -56,11 +69,14 @@ h1 {
 }
 
 #text-container {
+  font-family: Inter;
+  line-height: 1.4;
+  font-size: 1vw;
   margin-left: 160px;
-  margin-top: 15%;
+  margin-top: 25%;
   grid-column: span 2;
   text-align: center;
-  opacity: 1;
+  opacity: 0;
   animation: fadeIn 1s forwards 1s;
 }
 
