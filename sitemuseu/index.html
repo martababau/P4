@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="style" href="index.css" />
+    <link rel="stylesheet " href="index.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Museum of Strange Artifacts</title>
+  </head>
+
+  <body>
     <div id="text-container">
       <h1 id="titulo">Museum of Strange Artifacts</h1>
     </div>
-  </head>
-  <body>
+
     <div id="bg_container">
       <div class="bg"></div>
       <div class="bg"></div>
@@ -109,77 +111,7 @@
         style="width: 40px; height: 40px"
       />
     </div>
-
-    <script>
-      let currentIndex = 0;
-      const slides = document.querySelectorAll(".slide");
-      const totalSlides = slides.length;
-      const slideContainer = document.querySelector(".slide-container");
-      const bgContainer = document.getElementById("bg_container");
-      const holofoteImages = document.querySelectorAll(".holofote");
-
-      function showSlides() {
-        slideContainer.style.transform = `translateX(-${currentIndex * 25}%)`;
-      }
-
-      function nextSlide() {
-        currentIndex = currentIndex >= totalSlides - 4 ? 0 : currentIndex + 1;
-        showSlides();
-      }
-
-      function prevSlide() {
-        currentIndex = currentIndex <= 0 ? totalSlides - 4 : currentIndex - 1;
-        showSlides();
-      }
-
-      function handleWheel(event) {
-        if (event.deltaY > 0) {
-          nextSlide();
-        } else if (event.deltaY < 0) {
-          prevSlide();
-        }
-      }
-
-      document.addEventListener("wheel", handleWheel);
-
-      function setHolofoteOpacity(event) {
-        const mouseX = event.clientX;
-        const distances = [];
-        holofoteImages.forEach((holofote, index) => {
-          const holofoteRect = holofote.getBoundingClientRect();
-          const holofoteCenterX = holofoteRect.left + holofoteRect.width / 2;
-          const distance = Math.abs(mouseX - holofoteCenterX);
-          distances.push({ index, distance });
-        });
-        distances.sort((a, b) => a.distance - b.distance);
-        holofoteImages.forEach((holofote, index) => {
-          if (index === distances[0].index) {
-            holofote.style.opacity = 1;
-          } else {
-            holofote.style.opacity = 0.25;
-          }
-        });
-      }
-
-      document.addEventListener("mousemove", setHolofoteOpacity);
-
-      function fadeOutBodyAndNavigate(url) {
-        document.body.style.opacity = "0";
-        setTimeout(() => {
-          window.location.href = url;
-        }, 500);
-      }
-
-      const productLinks = document.querySelectorAll(".product");
-      productLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-          event.preventDefault();
-          const url = link.parentElement.href;
-          fadeOutBodyAndNavigate(url);
-        });
-      });
-
-      showSlides();
-    </script>
   </body>
+  <script src="../index.js"></script>
+  <script src="../index.js"></script>
 </html>
