@@ -77,21 +77,23 @@
     }
 
     #image-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+      position: relative; /* Changed to relative */
       height: 100%;
       max-height: 100vh;
       z-index: 1;
     }
 
     .floating-image {
-      width: 40px;
-      height: auto;
-      margin: 0 5px; /* Adjust spacing between images */
-      animation: float 5s infinite alternate ease-in-out;
-    }
+  width: auto;
+  height: auto;
+  max-width: 150px; /* Set max width */
+  max-height: 150px; /* Set max height */
+  margin: 0 5px; /* Adjust spacing between images */
+  animation: float 5s infinite alternate ease-in-out;
+  position: absolute; /* Set position to absolute */
+  left: calc(50% - 45px); /* Center the images horizontally */
+  z-index: 10002; /* Set a higher z-index than other elements */
+}
 
     @keyframes float {
       0% {
@@ -104,6 +106,15 @@
 
     #image-container img {
       cursor: pointer;
+    }
+
+    #holofote {
+      position: absolute;
+      top: 0;
+      left: -40%;
+      z-index: 10001;
+      width: 100%;
+      opacity: 100%;
     }
 
     #redirectButton {
@@ -135,20 +146,28 @@
       <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..</p>
     </div>
   </div>
+  
+  <!-- Add the holofote image -->
+  <img id="holofote" src="imagens/holofote.png" alt="Holofote">
 
   <img id="redirectButton" src="imagens/larrow.png" alt="Back to index" onclick="window.location.href = 'index.html'">
 
   <script>
-    // Function to create and add floating images
-    function addFloatingImages() {
-      var container = document.getElementById('image-container');
-      for (var i = 1; i <= 9; i++) {
-        var img = document.createElement('img');
-        img.src = 'imagens/chave' + i + '.png';
-        img.classList.add('floating-image');
-        container.appendChild(img);
-      }
-    }
+   // Function to create and add floating images
+
+   function addFloatingImages() {
+  for (var i = 1; i <= 9; i++) {
+    var img = document.createElement('img');
+    img.src = 'imagens/chave' + i + '.png';
+    img.classList.add('floating-image');
+    img.style.top = Math.floor(Math.random() * 70) + 10 + '%'; /* Randomize top position within specified range */
+    img.style.left = Math.floor(Math.random() * 30) + '%'; /* Randomize left position within specified range */
+    img.style.transform = 'rotate(' + Math.floor(Math.random() * 20) + 'deg)'; /* Randomize rotation angle */
+    document.body.appendChild(img); // Append images directly to the body
+  }
+}
+
+
 
     // Call the function when the page is loaded
     window.onload = function() {
