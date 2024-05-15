@@ -1,176 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Museum of Strange Artifacts</title>
-  <style>
-      @font-face { font-family: Curia; src: url('../Fonts/Curia-Regular.woff'); }
-      @font-face { font-family: Inter; src: url('../Fonts/Inter-Regular.woff'); }
-    :root {
-            --branco: #F2F0EB;
-            --preto: #161616;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museum of Strange Artifacts</title>
+    <style>
+      @font-face {
+        font-family: Curia;
+        src: url("../Fonts/Curia-Regular.woff");
+      }
+      @font-face {
+        font-family: Inter;
+        src: url("../Fonts/Inter-Regular.woff");
+      }
+      :root {
+        --branco: #f2f0eb;
+        --preto: #161616;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background-color: var(--preto);
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        margin-left: 10%;
+        margin-right: 200px;
+      }
+
+      h1 {
+        font-family: Curia;
+        padding-bottom: 0px;
+        text-align: left;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+        font-size: 3vw;
+        margin-bottom: 3%; /*entre titulo e texto*/
+      }
+
+      #black-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 9999;
+        opacity: 1;
+        animation: fadeOut 1s ease-in-out forwards;
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
         }
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      height: 100vh;
-      width: 100vw;
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      background-color: var(--preto);
-      opacity: 1;
-      transition: opacity 0.5s ease;
-      margin-left: 10%;
-      margin-right: 200px;
-    }
+        to {
+          opacity: 0;
+        }
+      }
 
-    h1 {
-      font-family: Curia;
-      padding-bottom: 0px;
-      text-align: left;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      font-size: 3vw;
-      margin-bottom: 3%; /*entre titulo e texto*/
-    }
+      #content {
+        position: relative;
+        z-index: 10000;
+        color: var(--branco);
+        text-align: left;
 
-    #black-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      z-index: 9999;
-      opacity: 1;
-      animation: fadeOut 1s ease-in-out forwards;
-    }
+        grid-column: span 2;
+        margin-right: 20%;
+        margin-left: 0%;
+      }
 
-    @keyframes fadeOut {
-      from {
+      #text-container {
+        font-family: Inter;
+        font-size: 1vw;
+        margin-left: 160px;
+        margin-top: 25%; /*top, texto*/
+        grid-column: span 2;
+        text-align: center;
+        opacity: 0;
+        animation: fadeIn 1s forwards 1s;
+      }
+
+      p {
+        text-align: left;
+        margin-right: 22%;
+      }
+
+      #image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 100%;
+        max-height: 100vh;
+        z-index: 1;
+      }
+
+      #image-container img {
+        position: absolute;
+        top: 15%;
+        height: auto;
+        width: 100%;
+        transform: translate(0, -50%);
+        cursor: pointer;
+      }
+
+      #holofote {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10001;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      #redirectButton {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 10002;
+        opacity: 0.4;
+        transition: opacity 0.3s ease;
+      }
+
+      #redirectButton:hover {
         opacity: 1;
       }
-      to {
-        opacity: 0;
-      }
-    }
+    </style>
+  </head>
+  <body>
+    <div id="black-screen"></div>
 
-    #content {
-      position: relative;
-      z-index: 10000;
-      color: var(--branco);
-      text-align: left;
-
-      grid-column: span 2;
-      margin-right: 20%;
-      margin-left: 0%;
-    }
-
-    #text-container {
-      font-family: Inter;
-      font-size: 1vw;
-      margin-left: 160px;
-      margin-top: 25%; /*top, texto*/
-      grid-column: span 2;
-      text-align: center;
-      opacity: 0;
-      animation: fadeIn 1s forwards 1s;
-    }
-
-    p {
-      text-align: left;
-      margin-right: 22%;
-    }
-
-    #image-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      height: 100%;
-      max-height: 100vh;
-      z-index: 1;
-    }
-
-    #image-container img {
-      position: absolute;
-      top: 15%;
-      height: auto;
-      width: 100%;
-      transform: translate(0, -50%);
-      cursor: pointer;
-    }
-
-    #holofote {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 10001;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
- 
-    #redirectButton {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      z-index: 10002; 
-      opacity: 0.4; 
-      transition: opacity 0.3s ease; 
-    }
-
-    #redirectButton:hover {
-      opacity: 1; 
-    }
-
-  </style>
-</head>
-<body>
-  <div id="black-screen"></div>
-
-  <div id="image-container">
-    <img id="imagem"  src="imagens/per0.png" alt="Your Image" onclick="showVideo('imagens/per0.mp3')">
-    <img id="holofote" src="imagens/holofote.png" alt="Holofote">
-  </div>
-  <div id="content">
-    <div id="text-container">
-      <h1 id="titulo">Condimenteira</h1>
-      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..</p>
+    <div id="image-container">
+      <img
+        id="imagem"
+        src="imagens/per0.png"
+        alt="Your Image"
+        onclick="showVideo('imagens/per0.mp3')"
+      />
+      <img id="holofote" src="imagens/holofote.png" alt="Holofote" />
     </div>
-  </div>
+    <div id="content">
+      <div id="text-container">
+        <h1 id="titulo">Condimenteira</h1>
+        <p>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem Ipsum comes from sections 1.10.32 and
+          1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+          Evil) by Cicero, written in 45 BC. This book is a treatise on the
+          theory of ethics, very popular during the Renaissance. The first line
+          of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
+          section 1.10.32. The standard chunk of Lorem Ipsum used since the
+          1500s is reproduced below for those interested. Sections 1.10.32 and
+          1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
+          reproduced in their exact original form, accompanied by English
+          versions from the 1914 translation by H. Rackham..
+        </p>
+      </div>
+    </div>
 
-  <img id="redirectButton" src="imagens/larrow.png" alt="Back to index" onclick="window.location.href = 'index.html'">
+    <img
+      id="redirectButton"
+      src="imagens/larrow.png"
+      alt="Back to index"
+      onclick="window.location.href = 'index.html'"
+    />
 
-  <script>
-    var counter = 0;
-    var images = ["imagens/per0.png", "imagens/per1.png", "imagens/per2.png", "imagens/per3.png", "imagens/per4.png", "imagens/per5.png"
-      , "imagens/per6.png", "imagens/per7.png"];
+    <script>
+      var counter = 0;
+      var images = [
+        "imagens/per0.png",
+        "imagens/per1.png",
+        "imagens/per2.png",
+        "imagens/per3.png",
+        "imagens/per4.png",
+        "imagens/per5.png",
+        "imagens/per6.png",
+        "imagens/per7.png",
+      ];
 
-    setInterval(function () {
-      document.getElementById('imagem').src = "imagens/per" + counter % images.length + ".png";
-      counter += 1;
-    }, 200);
+      setInterval(function () {
+        document.getElementById("imagem").src =
+          "imagens/per" + (counter % images.length) + ".png";
+        counter += 1;
+      }, 200);
 
-    function showVideo(src) {
-      alert("Show the " + src + " video as a pop-up");
-      // Add code here to show the video as a pop-up
-    }
-
-  </script>
-</body>
+      function showVideo(src) {
+        alert("Show the " + src + " video as a pop-up");
+        // Add code here to show the video as a pop-up
+      }
+    </script>
+  </body>
 </html>

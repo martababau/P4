@@ -1,280 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="style" href="index.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Museum of Strange Artifacts</title>
     <div id="text-container">
-        <h1 id="titulo">Museum of Strange Artifacts</h1>
+      <h1 id="titulo">Museum of Strange Artifacts</h1>
     </div>
-    <style>
-        :root {
-            --branco: #F2F0EB;
-            --preto: #161616;
-        }
-        @font-face { font-family: Curia; src: url('../Fonts/Curia-Regular.woff'); }
-        @font-face { font-family: Inter; src: url('../Fonts/Inter-Regular.woff'); }
-
-        #text-container {
-            font-family: Curia;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--branco);
-            font-size: 2vw;
-        }
-
-        body {
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-            margin: 0;
-            position: relative;
-            background-color: var(--preto);
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-        #bg_container {
-            display: flex;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            transition: transform 0.5s ease;
-            z-index: -1;
-        }
-        .bg {
-            flex: 1 0 100%;
-            height: 100%;
-        }
-        .bg:first-child {
-            background-color: var(--preto);
-        }
-        .bg:last-child {
-            background-color: var(--preto);
-        }    
-        .carousel {
-            width: 80%;
-            margin: 0 auto;
-            position: absolute;
-            bottom: 33%;
-            right: 50%;
-            transform: translateX(50%);
-        }
-        .slide-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        .slide {
-            flex: 1 0 25%;
-            height: 300px;
-            box-sizing: border-box;
-            text-align: center;
-            line-height: 200px;
-            position: relative;
-        }
-        .pilar_dentro {
-    position: absolute;
-    width: 100%; 
-    background: url('imagens/coluna7.png') center/contain no-repeat;
-    top: 55%;
-   /* Adjust the left positioning if needed */
-    height: 200%;
-    z-index: -1;
-}
-
-
-        .product {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: auto;
-            max-height: 100%;
-            width: auto;
-            max-width: 100%;
-            cursor: pointer;
-        }
-        .holofote-container {
-            position: absolute;
-            top: 0;
-            left: 10%;
-            width: 80%;
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            z-index: -1;
-        }
-        .holofote {
-            height: 100%;
-            width: 25%;
-            transition: opacity 0.3s ease;
-        }
-        .prev,
-        .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            opacity: 0.5;
-            padding: 10px;
-            transition: opacity 0.3s ease; 
-        }
-        .prev:hover,
-        .next:hover {
-            opacity: 1; 
-        }
-        .prev {
-            left: 0;
-        }
-        .next {
-            right: 0;
-        }
-    </style>
-</head>
-<body>
-<div id="bg_container">
-    <div class="bg"></div>
-    <div class="bg"></div>
-</div>
-
-<div class="carousel"> 
-    <div class="slide-container">
-        <div class="slide">
-            <a href="objeto1.html">
-                <img class="product" src="imagens/gc1.png" alt="produto" />
-            </a>
-            <div class="pilar_dentro"></div>
-        </div>
-        <!-- Add more slides -->
-        <div class="slide">
-            <a href="objeto2.html">
-                <img class="product" src="imagens/chaves.png" alt="produto" />
-            </a>
-            <div class="pilar_dentro"></div>
-        </div>
-        <div class="slide">
-            <a href="objeto3.html">
-                <img class="product" src="imagens/per1.png" alt="produto" />
-            </a>
-            <div class="pilar_dentro"></div>
-        </div>
-        <div class="slide">
-            <a href="objeto4.html">
-                <img class="product" src="imagens/face.png" alt="produto" />
-            </a>
-            <div class="pilar_dentro"></div>
-        </div>
-        <div class="slide">
-            <a href="objeto5.html">
-                <img class="product" src="imagens/face.png" alt="produto" />
-            </a>
-            <div class="pilar_dentro"></div>
-        </div>
-        <div class="slide">
-            <a href="objeto6.html">
-                <img class="product" src="imagens/face.png" alt="produto" />
-            </a>
-            <div class="pilar_dentro"></div>
-        </div>
-        <div class="slide">
-            <a href="objeto7.html">
-                <img class="product" src="imagens/face.png" alt="produto" />
-            </a>
-            <div class="pilar_dentro"></div>
-        </div>
-        <div class="slide">
-            <a href="objeto8.html">
-                <img class="product" src="imagens/face.png" alt="produto" />
-            </a>
-            <div class="pilar_dentro"></div>
-        </div>
+  </head>
+  <body>
+    <div id="bg_container">
+      <div class="bg"></div>
+      <div class="bg"></div>
     </div>
-</div>
 
-<div class="holofote-container">
-    <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote1" />
-    <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote2" />
-    <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote3" />
-    <img class="holofote" src="imagens/holofote.png" alt="holofote" id="holofote4" />
-</div>
+    <div class="carousel">
+      <div class="slide-container">
+        <div class="slide">
+          <a href="objeto1.html">
+            <img class="product" src="imagens/gc1.png" alt="produto" />
+          </a>
+          <div class="pilar_dentro"></div>
+        </div>
+        <div class="slide">
+          <a href="objeto2.html">
+            <img class="product" src="imagens/chaves.png" alt="produto" />
+          </a>
+          <div class="pilar_dentro"></div>
+        </div>
+        <div class="slide">
+          <a href="objeto3.html">
+            <img class="product" src="imagens/per1.png" alt="produto" />
+          </a>
+          <div class="pilar_dentro"></div>
+        </div>
+        <div class="slide">
+          <a href="objeto4.html">
+            <img class="product" src="imagens/face.png" alt="produto" />
+          </a>
+          <div class="pilar_dentro"></div>
+        </div>
+        <div class="slide">
+          <a href="objeto5.html">
+            <img class="product" src="imagens/face.png" alt="produto" />
+          </a>
+          <div class="pilar_dentro"></div>
+        </div>
+        <div class="slide">
+          <a href="objeto6.html">
+            <img class="product" src="imagens/face.png" alt="produto" />
+          </a>
+          <div class="pilar_dentro"></div>
+        </div>
+        <div class="slide">
+          <a href="objeto7.html">
+            <img class="product" src="imagens/face.png" alt="produto" />
+          </a>
+          <div class="pilar_dentro"></div>
+        </div>
+        <div class="slide">
+          <a href="objeto8.html">
+            <img class="product" src="imagens/face.png" alt="produto" />
+          </a>
+          <div class="pilar_dentro"></div>
+        </div>
+      </div>
+    </div>
 
-<div class="prev" onclick="prevSlide()">
-    <img src="imagens/larrow.png" alt="Previous" style="width: 40px; height: 40px;">
-</div>
-<div class="next" onclick="nextSlide()">
-    <img src="imagens/rarrow.png" alt="Next" style="width: 40px; height: 40px;">
-</div>
+    <div class="holofote-container">
+      <img
+        class="holofote"
+        src="imagens/holofote.png"
+        alt="holofote"
+        id="holofote1"
+      />
+      <img
+        class="holofote"
+        src="imagens/holofote.png"
+        alt="holofote"
+        id="holofote2"
+      />
+      <img
+        class="holofote"
+        src="imagens/holofote.png"
+        alt="holofote"
+        id="holofote3"
+      />
+      <img
+        class="holofote"
+        src="imagens/holofote.png"
+        alt="holofote"
+        id="holofote4"
+      />
+    </div>
 
-<script>
-    let currentIndex = 0;
-    const slides = document.querySelectorAll(".slide");
-    const totalSlides = slides.length;
-    const slideContainer = document.querySelector(".slide-container");
-    const bgContainer = document.getElementById("bg_container");
-    const holofoteImages = document.querySelectorAll(".holofote");
+    <div class="prev" onclick="prevSlide()">
+      <img
+        src="imagens/larrow.png"
+        alt="Previous"
+        style="width: 40px; height: 40px"
+      />
+    </div>
+    <div class="next" onclick="nextSlide()">
+      <img
+        src="imagens/rarrow.png"
+        alt="Next"
+        style="width: 40px; height: 40px"
+      />
+    </div>
 
-    function showSlides() {
+    <script>
+      let currentIndex = 0;
+      const slides = document.querySelectorAll(".slide");
+      const totalSlides = slides.length;
+      const slideContainer = document.querySelector(".slide-container");
+      const bgContainer = document.getElementById("bg_container");
+      const holofoteImages = document.querySelectorAll(".holofote");
+
+      function showSlides() {
         slideContainer.style.transform = `translateX(-${currentIndex * 25}%)`;
-    }
+      }
 
-    function nextSlide() {
+      function nextSlide() {
         currentIndex = currentIndex >= totalSlides - 4 ? 0 : currentIndex + 1;
         showSlides();
-    }
+      }
 
-    function prevSlide() {
-        currentIndex = currentIndex <= 0 ? totalSlides - 4 : currentIndex - 1 ;
+      function prevSlide() {
+        currentIndex = currentIndex <= 0 ? totalSlides - 4 : currentIndex - 1;
         showSlides();
-    }
+      }
 
-    function handleWheel(event) {
+      function handleWheel(event) {
         if (event.deltaY > 0) {
-            nextSlide();
+          nextSlide();
         } else if (event.deltaY < 0) {
-            prevSlide();
+          prevSlide();
         }
-    }
+      }
 
-    document.addEventListener("wheel", handleWheel);
+      document.addEventListener("wheel", handleWheel);
 
-    function setHolofoteOpacity(event) {
+      function setHolofoteOpacity(event) {
         const mouseX = event.clientX;
         const distances = [];
         holofoteImages.forEach((holofote, index) => {
-            const holofoteRect = holofote.getBoundingClientRect();
-            const holofoteCenterX = holofoteRect.left + holofoteRect.width / 2;
-            const distance = Math.abs(mouseX - holofoteCenterX);
-            distances.push({ index, distance });
+          const holofoteRect = holofote.getBoundingClientRect();
+          const holofoteCenterX = holofoteRect.left + holofoteRect.width / 2;
+          const distance = Math.abs(mouseX - holofoteCenterX);
+          distances.push({ index, distance });
         });
         distances.sort((a, b) => a.distance - b.distance);
         holofoteImages.forEach((holofote, index) => {
-            if (index === distances[0].index) {
-                holofote.style.opacity = 1;
-            } else {
-                holofote.style.opacity = 0.25;
-            }
+          if (index === distances[0].index) {
+            holofote.style.opacity = 1;
+          } else {
+            holofote.style.opacity = 0.25;
+          }
         });
-    }
+      }
 
-    document.addEventListener("mousemove", setHolofoteOpacity);
+      document.addEventListener("mousemove", setHolofoteOpacity);
 
-    function fadeOutBodyAndNavigate(url) {
-        document.body.style.opacity = '0';
+      function fadeOutBodyAndNavigate(url) {
+        document.body.style.opacity = "0";
         setTimeout(() => {
-            window.location.href = url;
-        }, 500); // Adjust timing as needed
-    }
-    
-    const productLinks = document.querySelectorAll('.product');
-    productLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const url = link.parentElement.href;
-            fadeOutBodyAndNavigate(url);
-        });
-    });
+          window.location.href = url;
+        }, 500);
+      }
 
-    showSlides(); // Ensure initial slide display
-</script>
-</body>
+      const productLinks = document.querySelectorAll(".product");
+      productLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          const url = link.parentElement.href;
+          fadeOutBodyAndNavigate(url);
+        });
+      });
+
+      showSlides();
+    </script>
+  </body>
 </html>
