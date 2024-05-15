@@ -1,73 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Museum of Strange Artifacts</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #000000;
-      color: white;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museum of Strange Artifacts</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: var(--preto);
+        color: var(--branco);
+      }
 
-    #content {
-      text-align: center;
-    }
+      #content {
+        text-align: center;
+      }
 
-    #redirectButton {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      opacity: 0.4;
-      transition: opacity 0.3s ease;
-    }
+      #redirectButton {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        opacity: 0.4;
+        transition: opacity 0.3s ease;
+      }
 
-    #redirectButton:hover {
-      opacity: 1;
-    }
-    @font-face {
-  font-family: Curia;
-  src: url("../Fonts/Curia-Regular.woff");
-}
-@font-face {
-  font-family: Inter;
-  src: url("../Fonts/Inter-Regular.woff");
-}
-@font-face {
-  font-family: InterB;
-  src: url("../Fonts/Inter-Medium.woff");
-}
-h1{
-font-family: InterB;
-font-size: 400%;
-}
+      #redirectButton:hover {
+        opacity: 1;
+      }
+      @font-face {
+        font-family: Curia;
+        src: url("../Fonts/Curia-Regular.woff");
+      }
+      @font-face {
+        font-family: Inter;
+        src: url("../Fonts/Inter-Regular.woff");
+      }
+      @font-face {
+        font-family: InterB;
+        src: url("../Fonts/Inter-Medium.woff");
+      }
+      h1 {
+        font-family: InterB;
+        font-size: 400%;
+      }
 
+      :root {
+        --branco: #f2f0eb;
+        --preto: #161616;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="black-screen"></div>
 
-:root {
-  --branco: #f2f0eb;
-  --preto: #161616;
-}
-  </style>
-</head>
-<body>
-  <div id="black-screen"></div>
-
-  <div id="content">
-    <div id="text-container">
-      <h1 id="titulo">Coming Soon...</h1>
+    <div id="content">
+      <div id="text-container">
+        <h1 id="titulo">Coming Soon...</h1>
+      </div>
     </div>
-  </div>
 
-  <img id="redirectButton" src="imagens/larrow.png" alt="Back to index" onclick="window.location.href = 'https://martababau.github.io/P4/'">
-</body>
-<script src="objeto4.js"></script>
+    <img
+      id="redirectButton"
+      src="imagens/larrow.png"
+      alt="Back to index"
+      onclick="window.location.href = 'https://martababau.github.io/P4/'"
+    />
+  </body>
+  <script src="objeto4.js"></script>
 </html>
