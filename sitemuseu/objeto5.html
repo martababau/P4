@@ -8,117 +8,16 @@
     body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100vh;
-      width: 100vw;
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      background-color: #3b3b3b;
-      opacity: 1;
-      transition: opacity 0.5s ease;
-      margin-left: 10%;
-      margin-right: 200px;
-    }
-
-    h1 {
-      padding-bottom: 0px;
-      text-align: left;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      font-size: 80px;
-      margin-bottom: 3%;
-    }
-
-    #black-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      z-index: 9999;
-      opacity: 1;
-      animation: fadeOut 1s ease-in-out forwards;
-    }
-
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-      }
+      background-color: #000000;
+      color: white;
     }
 
     #content {
-      position: relative;
-      z-index: 10000;
-      color: rgb(255, 255, 255);
-      text-align: left;
-
-      grid-column: span 2;
-      margin-right: 20%;
-      margin-left: 0%;
-    }
-
-    #text-container {
-      margin-left: 160px;
-      margin-top: 15%; /*top, texto*/
-      grid-column: span 2;
       text-align: center;
-      opacity: 0;
-      animation: fadeIn 1s forwards 1s;
-    }
-
-    p {
-      text-align: left;
-      margin-right: 22%;
-    }
-
-    #image-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      height: 100%;
-      max-height: 100vh;
-      z-index: 1;
-    }
-
-    #image-container img {
-      position: absolute;
-      top: 8%;
-      height: auto;
-      cursor: pointer;
-    }
-
-    #image-container img#imagem {
-      position: absolute;
-      top: -15%; /* altura botões */
-      left: 5%;
-      width: 50%;
-      height: auto;
-      cursor: pointer;
-      transform-origin: bottom center;
-    }
-
-    #image-container img#holofote {
-      position: absolute;
-      top: 0;
-      left: -20%;
-      z-index: 10001;
-      width: 100%;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
     }
 
     #redirectButton {
@@ -128,45 +27,47 @@
       width: 40px;
       height: 40px;
       cursor: pointer;
-      z-index: 10002; 
-      opacity: 0.4; 
-      transition: opacity 0.3s ease; 
+      opacity: 0.4;
+      transition: opacity 0.3s ease;
     }
 
     #redirectButton:hover {
-      opacity: 1; 
+      opacity: 1;
     }
+    @font-face {
+  font-family: Curia;
+  src: url("../Fonts/Curia-Regular.woff");
+}
+@font-face {
+  font-family: Inter;
+  src: url("../Fonts/Inter-Regular.woff");
+}
+@font-face {
+  font-family: InterB;
+  src: url("../Fonts/Inter-Medium.woff");
+}
+h1{
+font-family: InterB;
+font-size: 400%;
+}
+
+
+:root {
+  --branco: #f2f0eb;
+  --preto: #161616;
+}
   </style>
 </head>
 <body>
   <div id="black-screen"></div>
 
-  <div id="image-container">
-    <img id="imagem" src="imagens/botao1.png" alt="Your Image" onclick="showVideo('videos/perfume.mp4')">
-    <img id="holofote" src="imagens/holofote.png" alt="Holofote">
-  </div>
   <div id="content">
     <div id="text-container">
-      <h1 id="titulo">objeto 1 (titulo)</h1>
-      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..</p>
+      <h1 id="titulo">Coming Soon...</h1>
     </div>
   </div>
 
-  <img id="redirectButton" src="imagens/larrow.png" alt="Back to index" onclick="window.location.href = 'index.html'">
-
-  <script>
-    var counter = 0;
-    var images = ["imagens/botao1.png", "imagens/botao2.png", "imagens/botao3.png", "imagens/botao4.png"];
-    
-    setInterval(function() {
-      counter = (counter + 1) % images.length;
-      document.getElementById('imagem').src = images[counter];
-    }, 1000);
-
-    function showVideo(src) {
-      alert("Show the " + src + " video as a pop-up");
-      // Add code here to show the video as a pop-up
-    }
-  </script>
+  <img id="redirectButton" src="imagens/larrow.png" alt="Back to index" onclick="window.location.href = 'https://martababau.github.io/P4/'">
 </body>
+<script src="objeto4.js"></script>
 </html>
