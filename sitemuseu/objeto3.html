@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>obj teste</title>
   <style>
+    :root {
+            --branco: #F2F0EB;
+            --preto: #161616;
+        }
     body {
       margin: 0;
       padding: 0;
@@ -14,7 +18,7 @@
       position: relative;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      background-color: #3b3b3b;
+      background-color: var(--preto);
       opacity: 1;
       transition: opacity 0.5s ease;
       margin-left: 10%;
@@ -54,7 +58,7 @@
     #content {
       position: relative;
       z-index: 10000;
-      color: rgb(255, 255, 255);
+      color: var(--branco);
       text-align: left;
    
       grid-column: span 2;
