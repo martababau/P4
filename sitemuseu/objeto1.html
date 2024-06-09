@@ -1,46 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet " href="objeto1.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Museum of Strange Artifacts</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Museum of Strange Artifacts</title>
+  <link rel="stylesheet" href="objeto1.css">
+  <style>
+    
+    #popup-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 99999; 
+      backdrop-filter: blur(10px); 
+    }
 
-  <body>
-    <div id="black-screen"></div>
+    #popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgb(75, 75, 75);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+      width: 80%;
+      max-width: 800px;
+      z-index: 100000;
+      text-align: center;
+    }
 
-    <div id="image-container">
-      <img
-        id="imagem"
-        src="imagens/gc1.png"
-        alt="Your Image"
-        onclick="showVideo('videos/perfume.mp4')"
-      />
-      <img id="holofote" src="imagens/holofote.png" alt="Holofote" />
-    </div>
-    <div id="content">
-      <div id="text-container">
-        <h1 id="titulo">Keeper</h1>
-        <p>
-          This object has a very simple silhouette. The keeper is a support that
-          consists of a main rod and has a metal skeleton, which allows it to be
-          opened and closed. We believe it has been used for several generations
-          to transport various objects and purchases, as it has a rod with a
-          handle that is easy and comfortable to hold. This object also has a
-          somewhat waterproof fabric, which we think is nylon or polyester, that
-          prevents liquid spills during transport.
-        </p>
-      </div>
-    </div>
+    #popup h2 {
+      margin-top: 0;
+    }
 
+    #popup p {
+      overflow-y: auto;
+      max-height: 400px; 
+    }
+
+    #close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: rgb(165, 165, 165);
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #close-btn:hover {
+      background-color: #d00;
+    }
+  </style>
+</head>
+<body>
+  <div id="black-screen"></div>
+
+  <div id="image-container">
     <img
-  id="redirectButton"
-  src="imagens/larrow.png"
-  alt="Back to index"
-  onclick="window.location.href = 'https://martababau.github.io/P4/'"
-/>
+      id="imagem"
+      src="imagens/gc1.png"
+      alt="Your Image"
+      onclick="showVideo('videos/perfume.mp4')"
+    />
+    <img id="holofote" src="imagens/holofote.png" alt="Holofote" />
+  </div>
+  <div id="content">
+    <div id="text-container">
+      
+      <h1 id="titulo" onclick="showPopup()">Keeper</h1>
+      <p>
+        This object has a very simple silhouette. The keeper is a support that
+        consists of a main rod and has a metal skeleton, which allows it to be
+        opened and closed. We believe it has been used for several generations
+        to transport various objects and purchases, as it has a rod with a
+        handle that is easy and comfortable to hold. This object also has a
+        somewhat waterproof fabric, which we think is nylon or polyester, that
+        prevents liquid spills during transport.
+      </p>
+    </div>
+  </div>
 
-  </body>
+ 
+  <div id="popup-container">
+    
+    <div id="popup">
+      <h2>Pop-up Title</h2>
+      <p>Paragraph 1 This object has a very simple silhouette. The keeper is a support that
+        consists of a main rod and has a metal skeleton, which allows it to be
+        opened and closed. We believe it has been used for several generations
+        to transport various objects and purchases, as it has a rod with a
+        handle that is easy and comfortable to hold. This object also has a
+        somewhat waterproof fabric, which we think is nylon or polyester, that
+        prevents liquid spills during transport.
+        Paragraph 1 This object has a very simple silhouette. The keeper is a support that
+        consists of a main rod and has a metal skeleton, which allows it to be
+        opened and closed. We believe it has been used for several generations
+        to transport various objects and purchases, as it has a rod with a
+        handle that is easy and comfortable to hold. This object also has a
+        somewhat waterproof fabric, which we think is nylon or polyester, that
+        prevents liquid spills during transport.
+        Paragraph 1 This object has a very simple silhouette. The keeper is a support that
+        consists of a main rod and has a metal skeleton, which allows it to be
+        opened and closed. We believe it has been used for several generations
+        to transport various objects and purchases, as it has a rod with a
+        handle that is easy and comfortable to hold. This object also has a
+        somewhat waterproof fabric, which we think is nylon or polyester, that
+        prevents liquid spills during transport.
+        Paragraph 1 This object has a very simple silhouette. The keeper is a support that
+        consists of a main rod and has a metal skeleton, which allows it to be
+        opened and closed. We believe it has been used for several generations
+        to transport various objects and purchases, as it has a rod with a
+        handle that is easy and comfortable to hold. This object also has a
+        somewhat waterproof fabric, which we think is nylon or polyester, that
+        prevents liquid spills during transport.Paragraph 1 This object has a very simple silhouette. The keeper is a support that
+        consists of a main rod and has a metal skeleton, which allows it to be
+        opened and closed. We believe it has been used for several generations
+        to transport various objects and purchases, as it has a rod with a
+        handle that is easy and comfortable to hold. This object also has a
+        somewhat waterproof fabric, which we think is nylon or polyester, that
+        prevents liquid spills during transport.
+        Paragraph 1 This object has a very simple silhouette. The keeper is a support that
+        consists of a main rod and has a metal skeleton, which allows it to be
+        opened and closed. We believe it has been used for several generations
+        to transport various objects and purchases, as it has a rod with a
+        handle that is easy and comfortable to hold. This object also has a
+        somewhat waterproof fabric, which we think is nylon or polyester, that
+        prevents liquid spills during transport.
+        Paragraph 1 This object has a very simple silhouette. The keeper is a support that
+        consists of a main rod and has a metal skeleton, which allows it to be
+        opened and closed. We believe it has been used for several generations
+        to transport various objects and purchases, as it has a rod with a
+        handle that is easy and comfortable to hold. This object also has a
+        somewhat waterproof fabric, which we think is nylon or polyester, that
+        prevents liquid spills during transport.
+        Paragraph 1 This object has a very simple silhouette. The keeper is a support that
+        consists of a main rod and has a metal skeleton, which allows it to be
+        opened and closed. We believe it has been used for several generations
+        to transport various objects and purchases, as it has a rod with a
+        handle that is easy and comfortable to hold. This object also has a
+        somewhat waterproof fabric, which we think is nylon or polyester, that
+        prevents liquid spills during transport.</p>
+    
+      <button id="close-btn" onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <img
+    id="redirectButton"
+    src="imagens/larrow.png"
+    alt="Back to index"
+    onclick="window.location.href = 'https://martababau.github.io/P4/'"
+  />
+
   <script src="objeto1.js"></script>
+  <script>
+
+    function showPopup() {
+      document.getElementById("popup-container").style.display = "block";
+    }
+
+   
+    function closePopup() {
+      document.getElementById("popup-container").style.display = "none";
+    }
+  </script>
+</body>
 </html>
