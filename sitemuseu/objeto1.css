@@ -292,3 +292,8 @@ p {
 #popup p::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+h1:hover{
+
+  text-shadow: 0 0 10px white; 
+  cursor: pointer;
+}

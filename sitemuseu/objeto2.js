@@ -16,3 +16,12 @@ window.onload = function () {
 function showVideo(src) {
   alert("Show the " + src + " video as a pop-up");
 }
+
+function showPopup() {
+  document.getElementById("popup-container").style.display = "block";
+}
+
+
+function closePopup() {
+  document.getElementById("popup-container").style.display = "none";
+}
