@@ -1,102 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet " href="objeto2.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Museum of Strange Artifacts</title>
-  </head>
-  <body>
-    <div id="black-screen"></div>
-
-    <div id="image-container"></div>
-    <div id="content">
-      <div id="text-container">
-        <h1 id="titulo" onclick="showPopup()">Strokers</h1>
-        <p>
-          Strokers were an artistic tool highly valued by our ancestors. They
-          are made up of some metals, having a very shiny appearance and each
-          one of these objects has a unique shape, which allows us to create
-          different patterns and finishes with the use of paint. To use it, you
-          have to hold each stroker by the flat end with a hole and the shape of
-          the other end has a pattern to create art; We can see the results of
-          strokers in various abstract archaic works.
-        </p>
+<head>
+  <link rel="stylesheet" href="objeto2.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Museum of Strange Artifacts</title>
+</head>
+<body>
+  <div id="black-screen"></div>
+  <div id="image-container"></div>
+  <div id="content">
+    <div id="text-container">
+      <h1 id="titulo" onclick="showPopup()">Strokers</h1>
+      <p>
+        Strokers were an artistic tool highly valued by our ancestors. They
+        are made up of some metals, having a very shiny appearance and each
+        one of these objects has a unique shape, which allows us to create
+        different patterns and finishes with the use of paint. To use it, you
+        have to hold each stroker by the flat end with a hole and the shape of
+        the other end has a pattern to create art; We can see the results of
+        strokers in various abstract archaic works.
+      </p>
+      <div id="button-container">
+        <button id="show-popup-btn" onclick="showPopup()">Show Popup</button>
+        <button id="show-video-btn" onclick="showVideo('videos/v1.mp4')">Show Video</button>
       </div>
     </div>
-    <div id="popup-container">
-    
-      <div id="popup">
-        <h2>Pop-up Title</h2>
-        <p id="wikihow">Paragraph 1 This object has a very simple silhouette. The keeper is a support that
-          consists of a main rod and has a metal skeleton, which allows it to be
-          opened and closed. We believe it has been used for several generations
-          to transport various objects and purchases, as it has a rod with a
-          handle that is easy and comfortable to hold. This object also has a
-          somewhat waterproof fabric, which we think is nylon or polyester, that
-          prevents liquid spills during transport.
-          Paragraph 1 This object has a very simple silhouette. The keeper is a support that
-          consists of a main rod and has a metal skeleton, which allows it to be
-          opened and closed. We believe it has been used for several generations
-          to transport various objects and purchases, as it has a rod with a
-          handle that is easy and comfortable to hold. This object also has a
-          somewhat waterproof fabric, which we think is nylon or polyester, that
-          prevents liquid spills during transport.
-          Paragraph 1 This object has a very simple silhouette. The keeper is a support that
-          consists of a main rod and has a metal skeleton, which allows it to be
-          opened and closed. We believe it has been used for several generations
-          to transport various objects and purchases, as it has a rod with a
-          handle that is easy and comfortable to hold. This object also has a
-          somewhat waterproof fabric, which we think is nylon or polyester, that
-          prevents liquid spills during transport.
-          Paragraph 1 This object has a very simple silhouette. The keeper is a support that
-          consists of a main rod and has a metal skeleton, which allows it to be
-          opened and closed. We believe it has been used for several generations
-          to transport various objects and purchases, as it has a rod with a
-          handle that is easy and comfortable to hold. This object also has a
-          somewhat waterproof fabric, which we think is nylon or polyester, that
-          prevents liquid spills during transport.Paragraph 1 This object has a very simple silhouette. The keeper is a support that
-          consists of a main rod and has a metal skeleton, which allows it to be
-          opened and closed. We believe it has been used for several generations
-          to transport various objects and purchases, as it has a rod with a
-          handle that is easy and comfortable to hold. This object also has a
-          somewhat waterproof fabric, which we think is nylon or polyester, that
-          prevents liquid spills during transport.
-          Paragraph 1 This object has a very simple silhouette. The keeper is a support that
-          consists of a main rod and has a metal skeleton, which allows it to be
-          opened and closed. We believe it has been used for several generations
-          to transport various objects and purchases, as it has a rod with a
-          handle that is easy and comfortable to hold. This object also has a
-          somewhat waterproof fabric, which we think is nylon or polyester, that
-          prevents liquid spills during transport.
-          Paragraph 1 This object has a very simple silhouette. The keeper is a support that
-          consists of a main rod and has a metal skeleton, which allows it to be
-          opened and closed. We believe it has been used for several generations
-          to transport various objects and purchases, as it has a rod with a
-          handle that is easy and comfortable to hold. This object also has a
-          somewhat waterproof fabric, which we think is nylon or polyester, that
-          prevents liquid spills during transport.
-          Paragraph 1 This object has a very simple silhouette. The keeper is a support that
-          consists of a main rod and has a metal skeleton, which allows it to be
-          opened and closed. We believe it has been used for several generations
-          to transport various objects and purchases, as it has a rod with a
-          handle that is easy and comfortable to hold. This object also has a
-          somewhat waterproof fabric, which we think is nylon or polyester, that
-          prevents liquid spills during transport.</p>
-      
-        <button id="close-btn" onclick="closePopup()">Close</button>
-      </div>
+  </div>
+  <div id="popup-container">
+    <div id="popup">
+      <h2>Pop-up Title</h2>
+      <p id="wikihow">Paragraph 1 This object has a very simple silhouette. The keeper is a support that
+        consists of a main rod and has a metal skeleton, which allows it to be
+        opened and closed. We believe it has been used for several generations
+        to transport various objects and purchases, as it has a rod with a
+        handle that is easy and comfortable to hold. This object also has a
+        somewhat waterproof fabric, which we think is nylon or polyester, that
+        prevents liquid spills during transport.
+      </p>
+      <button id="close-btn" onclick="closePopup()">Close</button>
     </div>
-    
-    <img id="holofote" src="imagens/holofote.png" alt="Holofote" />
-
-    <img
+  </div>
+  <div id="video-popup-container">
+    <div id="video-popup">
+      <video id="popup-video" controls>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button id="close-video-btn" onclick="closeVideoPopup()">Close</button>
+    </div>
+  </div>
+  <img id="holofote" src="imagens/holofote.png" alt="Holofote" />
+  <img
     id="redirectButton"
     src="imagens/larrow.png"
     alt="Back to index"
     onclick="window.location.href = 'https://martababau.github.io/P4/'"
   />
-  
-  </body>
   <script src="objeto2.js"></script>
+  <script>
+    function showPopup() {
+      document.getElementById("popup-container").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup-container").style.display = "none";
+    }
+
+    function showVideo(src) {
+      var video = document.getElementById("popup-video");
+      video.src = src;
+      document.getElementById("video-popup-container").style.display = "block";
+    }
+
+    function closeVideoPopup() {
+      var video = document.getElementById("popup-video");
+      video.pause();
+      video.src = "";
+      document.getElementById("video-popup-container").style.display = "none";
+    }
+  </script>
+</body>
 </html>
