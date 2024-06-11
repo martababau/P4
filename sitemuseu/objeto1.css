@@ -44,8 +44,7 @@ h1 {
   transition: text-shadow 0.3s ease;
 }
 h1:hover{
-
-    text-shadow: 0 0 10px white; 
+ text-shadow: 0 0 10px white; 
     cursor: pointer;
 }
 
@@ -54,7 +53,7 @@ h2{
   color: var(--branco);
   padding-bottom: 0px;
   text-align: left;
-  opacity: 0;
+  
   animation: fadeIn 1s forwards;
   font-size: 4vw;
   margin-bottom: 3%;
@@ -219,11 +218,6 @@ p {
   z-index: 99999; 
   backdrop-filter: blur(10px); 
 }
-
-
-
-
-
 #popup {
   position: fixed;
   top: 50%;
@@ -345,9 +339,7 @@ h1:hover{
   text-align: center;
 }
 
-#popup h2 {
-  margin-top: 0;
-}
+
 
 #popup p {
   overflow-y: auto;

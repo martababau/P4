@@ -110,7 +110,6 @@ p {
   margin-right: 22%;
   text-align: left;
   font-family: Inter;
-
 }
 
 
@@ -237,10 +236,6 @@ p {
   z-index: 100000;
   text-align: center;
 }
-
-
-
-
 #video-popup {
   position: fixed;
   top: 50%;
