@@ -110,7 +110,7 @@ p {
   margin-right: 22%;
   text-align: left;
   font-family: Inter;
-  font-size:30px;
+
 }
 
 
@@ -309,7 +309,7 @@ p {
 
 button {
   font-size: 1.5vw;
-  padding: 15px 160px; /* Adjusted padding for bigger buttons */
+  padding: 15px 15%; /* Adjusted padding for bigger buttons */
   cursor: pointer;
   border: none;
   border-radius: 10px;
