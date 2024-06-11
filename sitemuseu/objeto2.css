@@ -45,6 +45,21 @@ h1 {
   margin-bottom: 3%;
   transition: text-shadow 0.3s ease;
 }
+h1:hover {
+  text-shadow: 0 0 10px white;
+  cursor: pointer;
+}
+
+h2 {
+  font-family: InterB;
+  color: var(--branco);
+  padding-bottom: 0px;
+  text-align: left;
+  animation: fadeIn 1s forwards;
+  font-size: 4vw;
+  margin-bottom: 3%;
+  cursor: default;
+}
 
 #black-screen {
   position: fixed;
@@ -93,7 +108,40 @@ h1 {
 p {
   text-align: left;
   margin-right: 22%;
+  text-align: left;
+  font-family: Inter;
+  font-size:30px;
 }
+
+
+
+
+
+
+
+/* diferenças */
+#image-container {
+  position: relative;
+  height: 100%;
+  max-height: 100vh;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #button-container {
   display: flex;
@@ -104,12 +152,7 @@ p {
   font-size: 0;
 }
 
-#image-container {
-  position: relative;
-  height: 100%;
-  max-height: 100vh;
-  z-index: 1;
-}
+
 
 .floating-image {
   width: auto;
@@ -173,7 +216,24 @@ p {
   backdrop-filter: blur(10px);
 }
 
-#popup,
+#popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(75, 75, 75);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  max-width: 1200px;
+  z-index: 100000;
+  text-align: center;
+}
+
+
+
+
 #video-popup {
   position: fixed;
   top: 50%;
@@ -236,25 +296,13 @@ p {
   background: #555;
 }
 
-h1:hover {
-  text-shadow: 0 0 10px white;
-  cursor: pointer;
-}
 
-h2 {
-  font-family: InterB;
-  color: var(--branco);
-  padding-bottom: 0px;
-  text-align: left;
-  animation: fadeIn 1s forwards;
-  font-size: 4vw;
-  margin-bottom: 3%;
-  cursor: default;
-}
+
+
 
 button {
   font-size: 1.5vw;
-  padding: 15px 180px; /* Adjusted padding for bigger buttons */
+  padding: 15px 160px; /* Adjusted padding for bigger buttons */
   cursor: pointer;
   border: none;
   border-radius: 10px;
@@ -265,22 +313,19 @@ button {
   background-color: #535353;
   color: white;
 }
-#wikihow{
 
+#wikihow {
   font-family: InterB;
 }
-
 
 button:hover {
   box-shadow: 0 0 0 rgba(255, 255, 255, 0);
   transition: box-shadow 0.5s ease-in-out;
 }
 
-
-
 #show-popup-btn, #show-video-btn {
   font-family: InterB;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: bold;
   background: url('imagens/metal.jpg') center center no-repeat;
   background-size: cover;

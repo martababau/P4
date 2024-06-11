@@ -110,6 +110,9 @@ h2{
 p {
   text-align: left;
   margin-right: 22%;
+  text-align: left;
+  font-family: Inter;
+  font-size:30px;
 }
 
 #image-container {
@@ -218,6 +221,10 @@ p {
   backdrop-filter: blur(10px); 
 }
 
+
+
+
+
 #popup {
   position: fixed;
   top: 50%;
@@ -261,12 +268,7 @@ p {
   background-color: #d00;
 }
 
-p {
-  text-align: left;
-  font-family: Inter;
-  font-size:30px;
-  
-}
+
 #popup p {
   overflow-y: auto;
   max-height: 600px; /* Maximum height of the paragraph content */
