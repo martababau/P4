@@ -142,17 +142,6 @@ p {
   animation: rotateImage 8s linear infinite;
 }
 
-#image-container img#imagem {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 50%;
-  height: auto;
-  cursor: pointer;
-  transform-origin: top center;
-  animation: rotateImage 8s linear infinite; /*tempo*/
-}
-
 @keyframes rotateImage {
   0% {
     transform: translate(0, -50%) rotate(0deg);
@@ -327,3 +316,30 @@ button:hover {
 }
 
 
+/* Styles for screens wider than 1200px (e.g., 1920px) */
+@media (min-width: 1201px) {
+
+
+  }
+
+
+@media (max-width: 1200px) and (min-width: 801px) {
+  #image-container img#imagem {
+   
+    top: 20%;
+    left: 0;
+    width: 50%;
+  
+  }
+@media (max-width: 800px) {
+  
+  #image-container img#imagem {
+  
+    top: 10%;
+    left: 0;
+    width: 50%;
+   
+  }
+
+  
+}
