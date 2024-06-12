@@ -319,6 +319,14 @@ button:hover {
   margin-top: 20px; /* Position below the text */
 }
 
+#wikihow2{
+
+  font-size:1.5vw;
+
+}
+
+
+
 
 /* Styles for screens wider than 1200px (e.g., 1920px) */
 @media (min-width: 1201px) {
