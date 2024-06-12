@@ -32,3 +32,17 @@ function closeVideoPopup() {
   video.src = "";
   document.getElementById("video-popup-container").style.display = "none";
 }
+function showVideo(videoUrl) {
+  var videoPopupContainer = document.getElementById('video-popup-container');
+  var videoPopup = document.getElementById('video-popup');
+  var video = videoPopup.querySelector('video');
+
+  video.src = videoUrl;
+  video.play();
+
+  video.style.width = '100%';
+  video.style.borderRadius = '20px'; 
+
+  videoPopupContainer.style.display = 'block';
+  videoPopup.style.display = 'block';
+}
