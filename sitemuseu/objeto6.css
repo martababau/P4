@@ -274,7 +274,7 @@ p {
 
 button {
   font-size: 1.5vw;
-  padding: 15px 15%; /* Adjusted padding for bigger buttons */
+  padding: 15px 12%; /* Adjusted padding for bigger buttons */
   cursor: pointer;
   border: none;
   border-radius: 10px;
@@ -282,7 +282,7 @@ button {
   font-family: InterB;
   transition: box-shadow 0.3s ease;
   border: none;
-  background-color: #535353;
+  background-color: var(--branco);/*cor normal*/
   color: white;
 }
 
@@ -291,19 +291,14 @@ button:hover {
   transition: box-shadow 0.5s ease-in-out;
 }
 
-
-
-
-
-
-
 #show-popup-btn, #show-video-btn {
   font-family: InterB;
-  font-size: 20px;
+  font-size: 1.3vw;
   font-weight: bold;
-  background: url('imagens/metal.jpg') center center no-repeat;
+  background-color;: var(--branco)
   background-size: cover;
-  color: #333;
+
+  color: #333; /*cor do texto*/
   box-shadow: 0 4px 6px rgba(0, 0, 0, 1), inset 0 -4px 6px rgba(0, 0, 0, 1);
   transition: box-shadow 0.5s ease; 
 }
