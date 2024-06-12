@@ -30,6 +30,10 @@
         that it can be sprayed well over the meal. It was a very useful
         utensil in the kitchen of our ancestors.
       </p>
+      <div id="button-container">
+        <button id="show-popup-btn" onclick="showPopup()">Instructions</button>
+        <button id="show-video-btn" onclick="showVideo('videos/v1.mp4')">Demonstration</button>
+      </div>
     </div>
   </div>
   <div id="popup-container">
@@ -90,15 +94,20 @@
         to transport various objects and purchases, as it has a rod with a
         handle that is easy and comfortable to hold. This object also has a
         somewhat waterproof fabric, which we think is nylon or polyester, that
-        prevents liquid spills during transport.</p>
+        prevents liquid spills during transport.
+      </p>
     
       <button id="close-btn" onclick="closePopup()">Close</button>
     </div>
   </div>
-  <div id="button-container">
-    <button id="show-popup-btn" onclick="showPopup()">Instructions</button>
-    <button id="show-video-btn" onclick="showVideo('videos/v1.mp4')">Demonstration</button>
-
+  <div id="video-popup-container">
+    <div id="video-popup">
+      <video id="popup-video" controls>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button id="close-video-btn" onclick="closeVideoPopup()">Close</button>
+    </div>
   </div>
   <img
   id="redirectButton"
