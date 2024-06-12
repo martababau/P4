@@ -303,8 +303,3 @@ button:hover {
   transition: box-shadow 0.5s ease; 
 }
 
-#show-popup-btn:hover, #show-video-btn:hover {
-  box-shadow: 
-    0 8px 12px rgba(0, 0, 0, 0.5), 
-    0 0 20px rgba(255, 255, 255, 0.7);
-}
