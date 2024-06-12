@@ -31,7 +31,10 @@ body {
   margin-left: 10%;
   margin-right: 200px;
 }
+#wikihow{
 
+  font-size:2vw;
+}
 h1 {
   font-family: InterB;
   color: var(--branco);
@@ -138,8 +141,9 @@ p {
   width: 50%;
   height: auto;
   cursor: pointer;
-  transform-origin: bottom center;
+  transform-origin: top center;
   animation: rotateImage 8s linear infinite;
+  
 }
 
 @keyframes rotateImage {
