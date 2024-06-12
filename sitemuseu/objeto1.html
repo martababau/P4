@@ -32,9 +32,13 @@
         somewhat waterproof fabric, which we think is nylon or polyester, that
         prevents liquid spills during transport.
       </p>
+      <div id="button-container">
+        <button id="show-popup-btn" onclick="showPopup()">Instructions</button>
+        <button id="show-video-btn" onclick="showVideo('videos/v1.mp4')">Demonstration</button>
+      </div>
     </div>
   </div>
-
+ 
  
   <div id="popup-container">
     
@@ -99,7 +103,15 @@
       <button id="close-btn" onclick="closePopup()">Close</button>
     </div>
   </div>
-
+  <div id="video-popup-container">
+    <div id="video-popup">
+      <video id="popup-video" controls>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button id="close-video-btn" onclick="closeVideoPopup()">Close</button>
+    </div>
+  </div>
   <img
     id="redirectButton"
     src="imagens/larrow.png"
